@@ -9,8 +9,8 @@ Você deverá implementar um web app responsivo (desktop e mobile), de acordo co
 ![Jüssi Reader Wireframe](src/images/jussi_reader_wireframe.png)
 
 ## URLs dos endpoints da API: 
-- [GET] https://jussi-reader.netlify.app/.netlify/functions/api/news-one
-- [GET] https://jussi-reader.netlify.app/.netlify/functions/api/news-two
+- [GET] https://jussi-reader.netlify.app/.netlify/functions/news-one
+- [GET] https://jussi-reader.netlify.app/.netlify/functions/news-two
 
 ## Requisitos mínimos:
 - Implementar layout responsivo para mobile e desktop.
