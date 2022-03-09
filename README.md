@@ -1,12 +1,14 @@
 # Jüssi Reader
 
-- Você deverá implementar um web app responsivo (desktop e mobile), de acordo com o layout definido no escopo utilizando como base as informações contidas nas APIs fornecidas.
+Lembra do Google Reader? É tipo isso, só que juicier 🧃
+
+Você deverá implementar um web app responsivo (desktop e mobile), de acordo com o layout definido no escopo, utilizando como base as informações contidas nas APIs fornecidas.
 
 ## Layout da interface
 
-../path/to/image.jpg
+[Jüssi Reader Wireframe](https://bitbucket.org/jussilabs/jussi-reader/raw/src/master/src/images/jussi_reader_wireframe.png)
 
-## URLs da API: 
+## URLs dos endpoints da API: 
 - [GET] https://jussi-reader.netlify.app/.netlify/functions/api/news-one
 - [GET] https://jussi-reader.netlify.app/.netlify/functions/api/news-two
 
