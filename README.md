@@ -1,45 +1,49 @@
-**Edit a file, create a new file, and clone from Bitbucket in under 2 minutes**
+# Jüssi Reader
 
-When you're done, you can delete the content in this README and update the file with details for others getting started with your repository.
+- Você deverá implementar um web app responsivo (desktop e mobile), de acordo com o layout definido no escopo utilizando como base as informações contidas nas APIs fornecidas.
 
-*We recommend that you open this README in another tab as you perform the tasks below. You can [watch our video](https://youtu.be/0ocf7u76WSo) for a full demo of all the steps in this tutorial. Open the video in a new tab to avoid leaving Bitbucket.*
+## Layout da interface
 
----
+../path/to/image.jpg
 
-## Edit a file
+## URLs da API: 
+- [GET] https://jussi-reader.netlify.app/.netlify/functions/api/news-one
+- [GET] https://jussi-reader.netlify.app/.netlify/functions/api/news-two
 
-You’ll start by editing this README file to learn how to edit a file in Bitbucket.
+## Requisitos mínimos:
+- Implementar layout responsivo para mobile e desktop.
+- Implementar menu de categorias para filtragem de artigos.
+- Implementar menu de ordenação de artigos por ordem alfabética (titulo) ou cronológica (data).
+- Implementar a exibição dos 6 (seis) primeiros artigos na home do web app. Para cada artigo, as informações a serem exibidas serão:
+    - título;
+    - resumo;
+    - categorias (caso possua);
+    - imagem destacada (caso possua)
+    - data de publicação.
+- Implementar uma busca simples de acordo com o título do artigo.
+- Implementar paginação de artigos no rodapé da página.
+- Os artigos devem conter link com a URL da notícia original.
 
-1. Click **Source** on the left side.
-2. Click the README.md link from the list of files.
-3. Click the **Edit** button.
-4. Delete the following text: *Delete this line to make a change to the README from Bitbucket.*
-5. After making your change, click **Commit** and then **Commit** again in the dialog. The commit page will open and you’ll see the change you just made.
-6. Go back to the **Source** page.
+## Desafios extras:
+- Implementar cache local do conteúdo dos artigos, visando o funcionamento offline. 
+- Implementar opção de adicionar dinamicamente novos endpoints (APIs) de artigos.
+- Implementar a funcionalidade de salvar artigo como favorito. 
+- Implementar transições e animações de interface (ex.: ao carregar a página, ao realizar a paginação, etc)
 
----
+## Estrutura de diretório
+Você deverá adicionar todo o código necessário da sua aplicação (HTML, CSS, JS, etc) em um novo diretório com seu nome de usuário em `./jussi-reader/client/`. Por exemplo, `./jussi-reader/client/mariozuany/`.
 
-## Create a file
+## Fluxo de Git
 
-Next, you’ll add a new file to this repository.
+- A primeira coisa que você deverá fazer é criar uma release branch utilizando seu nome de usuário, partr da `master` Por exemplo, `release/mariozuany`. Esta branch servirá como o namespace do seu projeto.
+- Quando for implementar uma funcionalidade, crie uma feature branch a partir da sua release branch, utilizando a nomenclatura `feature/seu-username-titulo-da-feature`. Por exemplo, `feature/mariozuany-article-sorting`.
+- Comite e envie seus arquivos (push) para o repositório com a maior frequência possível.
+- Assim que finalizar a implementação de uma funcionalidade, abra um pull request e escolha pelo menos dois colegas para avaliarem seu código.
+- Dê instruções claras e precisas na descrição do seu pull request. Ex.: o que deverá ser testado e como fazê-lo.
+- Antes de enviar seu pull request, confira se o código está realmente funcionando – ou seja, que é testável –, mesmo que a funcionalidade implementada ainda não esteja completamente finalizada.
+- Quanto menores (mais atômicos) forem seus pull requests, melhor. Isso facilita a vida de quem irá avaliar seu código e permite feedbacks mais rápidos. 
 
-1. Click the **New file** button at the top of the **Source** page.
-2. Give the file a filename of **contributors.txt**.
-3. Enter your name in the empty file space.
-4. Click **Commit** and then **Commit** again in the dialog.
-5. Go back to the **Source** page.
+## Importante
+Por favor, não utilize nenhum framework (react, vue, etc) ou biblioteca (jquery, lodash, etc) para implementar este projeto. A ideia deste projeto é que você possa fixar os conhecimentos adquiridos de JavaScript nos últimas semanas e tirar eventuais dúvidas que tiver no seu desenvolvimento. :)
 
-Before you move on, go ahead and explore the repository. You've already seen the **Source** page, but check out the **Commits**, **Branches**, and **Settings** pages.
 
----
-
-## Clone a repository
-
-Use these steps to clone from SourceTree, our client for using the repository command-line free. Cloning allows you to work on your files locally. If you don't yet have SourceTree, [download and install first](https://www.sourcetreeapp.com/). If you prefer to clone from the command line, see [Clone a repository](https://confluence.atlassian.com/x/4whODQ).
-
-1. You’ll see the clone button under the **Source** heading. Click that button.
-2. Now click **Check out in SourceTree**. You may need to create a SourceTree account or log in.
-3. When you see the **Clone New** dialog in SourceTree, update the destination path and name if you’d like to and then click **Clone**.
-4. Open the directory you just created to see your repository’s files.
-
-Now that you're more familiar with your Bitbucket repository, go ahead and add a new file locally. You can [push your change back to Bitbucket with SourceTree](https://confluence.atlassian.com/x/iqyBMg), or you can [add, commit,](https://confluence.atlassian.com/x/8QhODQ) and [push from the command line](https://confluence.atlassian.com/x/NQ0zDQ).

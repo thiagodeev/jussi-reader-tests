@@ -14,6 +14,7 @@ const content = {
       "excerpt": "Resumo da notícia",
       "image": "path/to/image.jpg",
       "url": "path/to/article",
+      "date": "02/10/2022",
       "categories": [
         {
           "name": "Categoria 1",
@@ -26,6 +27,7 @@ const content = {
       "excerpt": "Resumo da notícia",
       "image": null,
       "url": "path/to/article",
+      "date": "02/10/2022",
       "categories": []
     },
     {
@@ -33,6 +35,7 @@ const content = {
       "excerpt": "Resumo da notícia",
       "image": "path/to/image.jpg",
       "url": "path/to/article",
+      "date": "02/10/2022",
       "categories": [
         {
           "name": "Categoria 1",
