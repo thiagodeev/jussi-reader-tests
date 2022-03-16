@@ -8,9 +8,9 @@ gulp.task("sass", compileSass);
 
 function compileSass(){
     return gulp
-    .src("src/scss/**/*.scss")
+    .src("src/scss/**/main.scss")
     .pipe(sass())
-    .pipe(gulp.dest("src/css"));
+    .pipe(gulp.dest("src/"));
 };
 
 function watch(){
