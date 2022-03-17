@@ -1,0 +1,7 @@
+@use "../Settings" as *;
+
+body {
+    color: $primary-text-color;
+    font-size: $root-font-size;
+    background: $background-color;
+}

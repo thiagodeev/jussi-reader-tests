@@ -1,4 +1,4 @@
-$color: red;
-body {
-  background-color : $color;
-}
+@use "Settings";
+@use "Base";
+@use "Objects";
+@use "Components";
