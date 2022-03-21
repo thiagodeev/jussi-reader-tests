@@ -1,0 +1,18 @@
+$root-font-size: (
+  mobile: 16,
+  tablet: 17,
+  medium: 18,
+  large: 19,
+  x-large: 20
+); //Just set the NUMBER, not the "px" string (because "rem-calc()" function)
+
+$primary-text-color: #FFF;
+$background-color: radial-gradient(circle at center, #161a0d 0%, #093000 100%);
+
+$breakpoints: (
+  mobile: 320px,
+  tablet: 740px,
+  medium: 960px,
+  large: 1200px,
+  x-large: 1600px
+);
