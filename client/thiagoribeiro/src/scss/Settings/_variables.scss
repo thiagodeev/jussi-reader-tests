@@ -1,8 +1,6 @@
 //************* Fonts Settings *************//
-@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
-$title-font: 'Racing Sans One', cursive;
-
-$primary-text-color: #FFF;
+@import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
+$title-font: 'Marcellus', serif;
 
 $root-font-size: (
   mobile: 16,
@@ -12,9 +10,12 @@ $root-font-size: (
   x-large: 24
 ); //Just set the NUMBER, not the "px" string (because "rem-calc()" function)
 
+$primary-text-color: #FFF;
+
 ///////////////////////////////////////////////
 
-$background-color: radial-gradient(circle at center, #161a0d 0%, #093000 100%);
+$linear-title-color: linear-gradient(to right,#095fab 10%, #25abe8 25%, #57d75b 50%, #25abe8 75%, #095fab 90%);
+$background-color: radial-gradient(circle at center, #2a3a06 -50%, #202a1d 100%);
 
 $breakpoints: (
   mobile: 320px,
