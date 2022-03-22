@@ -1,3 +1,9 @@
+//************* Fonts Settings *************//
+@import url('https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap');
+$title-font: 'Racing Sans One', cursive;
+
+$primary-text-color: #FFF;
+
 $root-font-size: (
   mobile: 16,
   tablet: 18,
@@ -6,7 +12,8 @@ $root-font-size: (
   x-large: 24
 ); //Just set the NUMBER, not the "px" string (because "rem-calc()" function)
 
-$primary-text-color: #FFF;
+///////////////////////////////////////////////
+
 $background-color: radial-gradient(circle at center, #161a0d 0%, #093000 100%);
 
 $breakpoints: (
