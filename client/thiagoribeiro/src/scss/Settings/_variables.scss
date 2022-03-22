@@ -1,9 +1,9 @@
 $root-font-size: (
   mobile: 16,
-  tablet: 17,
-  medium: 18,
-  large: 19,
-  x-large: 20
+  tablet: 18,
+  medium: 20,
+  large: 22,
+  x-large: 24
 ); //Just set the NUMBER, not the "px" string (because "rem-calc()" function)
 
 $primary-text-color: #FFF;
