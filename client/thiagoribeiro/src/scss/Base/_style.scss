@@ -1,0 +1,53 @@
+@use "sass:map";
+@use "../Settings" as *;
+@use "../Tools" as *;
+
+
+html {
+
+  //set the Font-size for each viewport
+  @include breakpoint(mobile, max){
+    font-size: map.get($root-font-size, "mobile") + px;
+  };
+
+  @include breakpoint(mobile, min){
+    @include breakpoint(tablet, max){
+      font-size: map.get($root-font-size, "tablet") + px;
+    };
+  };
+
+  @include breakpoint(tablet, min){
+    @include breakpoint(medium, max){
+      font-size: map.get($root-font-size, "medium") + px;
+    };
+  };
+
+  @include breakpoint(medium, min){
+    @include breakpoint(large, max){
+      font-size: map.get($root-font-size, "large") + px;
+    };
+  };
+
+  @include breakpoint(large, min){
+    font-size: map.get($root-font-size, "x-large") + px;
+  };
+  //
+}
+
+body {
+  color: $primary-text-color;
+
+  //fix the Background gradient-color
+  &:after{
+    content: "";
+    display: block;
+    background-attachment: fixed;
+    position: fixed;
+    top:0; left:0;
+    height: 100%;
+    width: 100%;
+    background: $background-color;
+    z-index:-1;
+  }
+  //
+}
