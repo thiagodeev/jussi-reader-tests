@@ -36,6 +36,7 @@ html {
 
 body {
   color: $primary-text-color;
+  font-family: $main-font;
 
   //fix the Background gradient-color
   &:after{
