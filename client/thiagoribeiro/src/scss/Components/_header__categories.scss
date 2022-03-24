@@ -1,0 +1,38 @@
+@use "../foward" as *;
+
+.header__categories{
+  
+  ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  li{
+    white-space: pre-wrap;
+
+    &::after{
+      content: " | ";
+      margin: 0 0.5em;
+      float: right;
+      color: $secondary-text-color;
+    }
+
+    &:last-child{
+
+
+      &::after{
+        display: none;
+      }
+    }
+    
+    
+  }
+
+  a{
+    color: $secondary-text-color;
+  }
+
+}

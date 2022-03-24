@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Marcellus&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 @keyframes textclip {
   to {
     background-position: 200% center;
@@ -184,27 +185,35 @@ template {
   display: none;
 }
 
-@media (max-width: 319px) {
+html {
+  font-size: 16px;
+}
+@media (max-width: 379px) {
+  html {
+    font-size: 14px;
+  }
+}
+@media (min-width: 380px) and (max-width: 739px) {
   html {
     font-size: 16px;
   }
 }
-@media (min-width: 320px) and (max-width: 739px) {
-  html {
-    font-size: 18px;
-  }
-}
 @media (min-width: 740px) and (max-width: 959px) {
   html {
-    font-size: 20px;
+    font-size: 17px;
   }
 }
 @media (min-width: 960px) and (max-width: 1199px) {
   html {
-    font-size: 22px;
+    font-size: 18px;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1200px) and (max-width: 1599px) {
+  html {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1600px) {
   html {
     font-size: 24px;
   }
@@ -212,6 +221,8 @@ template {
 
 body {
   color: #FFF;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
 }
 body:after {
   content: "";
@@ -232,8 +243,35 @@ body:after {
   align-items: center;
 }
 
+.header__categories ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.header__categories li {
+  white-space: pre-wrap;
+}
+.header__categories li::after {
+  content: " | ";
+  margin: 0 0.5em;
+  float: right;
+  color: #60eca6;
+}
+.header__categories li:last-child::after {
+  display: none;
+}
+.header__categories a {
+  color: #60eca6;
+}
+
+.header__title {
+  text-align: center;
+}
 .header__title img {
   height: 1.7rem;
+  width: auto;
 }
 .header__title span {
   font-family: "Marcellus", serif;
