@@ -235,11 +235,20 @@ body:after {
   align-items: center;
 }
 
+.header__categories a {
+  color: #b4f999;
+}
+.header__categories ul {
+  list-style: none;
+  padding: 0;
+}
+
 .header__title {
   text-align: center;
 }
 .header__title img {
   height: 1.7rem;
+  width: auto;
 }
 .header__title span {
   font-family: "Marcellus", serif;
