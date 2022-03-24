@@ -36,7 +36,7 @@ html {
 
 body {
   color: $primary-text-color;
-  font-family: $main-font;
+  @include font($main-font, 400);
 
   //fix the Background gradient-color
   &:after{

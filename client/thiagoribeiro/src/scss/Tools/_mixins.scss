@@ -1,5 +1,10 @@
 @use "../Settings" as *;
 
+@mixin font($font-family, $font-weight) {
+  font-family: $font-family;
+  font-weight: $font-weight;
+}
+
 // A map of breakpoints.
 @mixin breakpoint($breakpoint, $direction) {
   @if map-has-key($breakpoints, $breakpoint) {

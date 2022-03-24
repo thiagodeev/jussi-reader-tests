@@ -214,6 +214,7 @@ template {
 body {
   color: #FFF;
   font-family: "Nunito", sans-serif;
+  font-weight: 400;
 }
 body:after {
   content: "";
