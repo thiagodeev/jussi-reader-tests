@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Marcellus&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
 @keyframes textclip {
   to {
     background-position: 200% center;
@@ -185,27 +185,35 @@ template {
   display: none;
 }
 
+html {
+  font-size: 16px;
+}
 @media (max-width: 319px) {
   html {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 @media (min-width: 320px) and (max-width: 739px) {
   html {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 @media (min-width: 740px) and (max-width: 959px) {
   html {
-    font-size: 20px;
+    font-size: 17px;
   }
 }
 @media (min-width: 960px) and (max-width: 1199px) {
   html {
-    font-size: 22px;
+    font-size: 18px;
   }
 }
-@media (min-width: 1200px) {
+@media (min-width: 1200px) and (max-width: 1599px) {
+  html {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1600px) {
   html {
     font-size: 24px;
   }
@@ -213,7 +221,7 @@ template {
 
 body {
   color: #FFF;
-  font-family: "Nunito", sans-serif;
+  font-family: "Poppins", sans-serif;
   font-weight: 400;
 }
 body:after {
@@ -235,12 +243,24 @@ body:after {
   align-items: center;
 }
 
-.header__categories a {
-  color: #b4f999;
-}
 .header__categories ul {
   list-style: none;
   padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.header__categories li::after {
+  content: " | ";
+  margin: 0 1em;
+  float: right;
+  color: #60eca6;
+}
+.header__categories li:last-child::after {
+  display: none;
+}
+.header__categories a {
+  color: #60eca6;
 }
 
 .header__title {

@@ -2,18 +2,20 @@
 @import url('https://fonts.googleapis.com/css2?family=Marcellus&display=swap');
 $title-font: 'Marcellus', serif;
 
-@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600&display=swap');
-$main-font: 'Nunito', sans-serif;
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+$main-font: 'Poppins', sans-serif;
 
 $root-font-size: (
+  small: 14,
   mobile: 16,
-  tablet: 18,
-  medium: 20,
-  large: 22,
+  tablet: 17,
+  medium: 18,
+  large: 20,
   x-large: 24
 ); //Just set the NUMBER, not the "px" string (because "rem-calc()" function)
 
 $primary-text-color: #FFF;
+$secondary-text-color: #60eca6;
 
 ///////////////////////////////////////////////
 

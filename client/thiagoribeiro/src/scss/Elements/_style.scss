@@ -4,34 +4,41 @@
 
 
 html {
+  font-size: 16px; //in case that browser doesn't support "rem"
 
   //set the Font-size for each viewport
+  
   @include breakpoint(mobile, max){
-    font-size: map.get($root-font-size, "mobile") + px;
+    font-size: map.get($root-font-size, "small") + px;
   };
-
+  
   @include breakpoint(mobile, min){
     @include breakpoint(tablet, max){
-      font-size: map.get($root-font-size, "tablet") + px;
+    font-size: map.get($root-font-size, "mobile") + px;
     };
   };
 
   @include breakpoint(tablet, min){
     @include breakpoint(medium, max){
-      font-size: map.get($root-font-size, "medium") + px;
+      font-size: map.get($root-font-size, "tablet") + px;
     };
   };
 
   @include breakpoint(medium, min){
     @include breakpoint(large, max){
-      font-size: map.get($root-font-size, "large") + px;
+      font-size: map.get($root-font-size, "medium") + px;
     };
   };
 
   @include breakpoint(large, min){
+    @include breakpoint(x-large, max){
+    font-size: map.get($root-font-size, "large") + px;
+    };
+  };
+  
+  @include breakpoint(x-large, min){
     font-size: map.get($root-font-size, "x-large") + px;
   };
-  //
 }
 
 body {
