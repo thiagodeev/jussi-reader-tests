@@ -11,10 +11,11 @@
   }
 
   li{
+    white-space: pre-wrap;
 
     &::after{
       content: " | ";
-      margin: 0 1em;
+      margin: 0 0.5em;
       float: right;
       color: $secondary-text-color;
     }

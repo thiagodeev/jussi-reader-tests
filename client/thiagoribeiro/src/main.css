@@ -188,12 +188,12 @@ template {
 html {
   font-size: 16px;
 }
-@media (max-width: 319px) {
+@media (max-width: 379px) {
   html {
     font-size: 14px;
   }
 }
-@media (min-width: 320px) and (max-width: 739px) {
+@media (min-width: 380px) and (max-width: 739px) {
   html {
     font-size: 16px;
   }
@@ -250,9 +250,12 @@ body:after {
   flex-wrap: wrap;
   justify-content: space-around;
 }
+.header__categories li {
+  white-space: pre-wrap;
+}
 .header__categories li::after {
   content: " | ";
-  margin: 0 1em;
+  margin: 0 0.5em;
   float: right;
   color: #60eca6;
 }
