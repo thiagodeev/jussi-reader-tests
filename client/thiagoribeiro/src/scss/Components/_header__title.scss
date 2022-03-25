@@ -3,11 +3,6 @@
 .header__title{
 	text-align: center;
 
-  img{
-    height: 1.7rem;
-		width: auto;
-  }
-
   span {
     font-family: $title-font;
     background: $linear-title-color;
@@ -20,4 +15,11 @@
 		-webkit-text-fill-color: transparent;
 		animation: textclip 5s linear infinite;
   }
+}
+
+.header__title_Layout{
+	img{
+    height: 1.7rem;
+		width: auto;
+	}
 }
