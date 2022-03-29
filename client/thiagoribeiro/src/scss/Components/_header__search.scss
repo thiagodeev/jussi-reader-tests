@@ -27,7 +27,7 @@
     padding: 10px 15px 10px 2.5em;
 
     @include breakpoint(mobile, max){
-      width: 80vw;
+      width: 100%;
     };
   }
 }

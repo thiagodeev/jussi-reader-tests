@@ -8,22 +8,16 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-  }
 
-  li{
-    white-space: pre-wrap;
-
-    &::after{
-      content: " | ";
-      margin: 0 0.5em;
-      float: right;
-      color: $secondary-text-color;
+    .flex-item {
+      flex: 1 1 auto;
+      text-align: center;
     }
 
-    &:last-child{
-      &::after{
-        display: none;
+    @include breakpoint(300px, min){
+      .flex-item + .flex-item {
+        border-left: 1px solid white;
       }
-    } 
+    }
   }
 }
