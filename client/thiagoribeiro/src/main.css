@@ -305,3 +305,9 @@ body:after {
   height: 1.7rem;
   width: auto;
 }
+
+.header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
