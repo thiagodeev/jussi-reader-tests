@@ -12,6 +12,10 @@
     .flex-item {
       flex: 1 1 auto;
       text-align: center;
+
+      a{
+        margin: 0 2px;
+      }
     }
 
     @include breakpoint(300px, min){

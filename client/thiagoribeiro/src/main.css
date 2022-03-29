@@ -248,6 +248,9 @@ body:after {
   flex: 1 1 auto;
   text-align: center;
 }
+.header__categories ul .flex-item a {
+  margin: 0 2px;
+}
 @media (min-width: 300px) {
   .header__categories ul .flex-item + .flex-item {
     border-left: 1px solid white;
