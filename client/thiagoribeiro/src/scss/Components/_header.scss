@@ -1,5 +1,11 @@
+@use "../foward" as *;
+
 .header {
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  a{
+    color: $secondary-text-color;
+  }
 }

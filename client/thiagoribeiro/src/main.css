@@ -256,9 +256,6 @@ body:after {
 .header__categories li:last-child::after {
   display: none;
 }
-.header__categories a {
-  color: #60eca6;
-}
 
 .header__search {
   border: none;
@@ -310,4 +307,7 @@ body:after {
   display: flex;
   flex-direction: column;
   align-items: center;
+}
+.header a {
+  color: #60eca6;
 }
