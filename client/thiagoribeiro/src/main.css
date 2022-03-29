@@ -281,6 +281,10 @@ body:after {
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 2em;
+}
+.header__orderBy_Layout nav a:first-child {
+  margin-right: 1em;
 }
 .header__orderBy_Layout a .header__orderBy__titleFilterIcon {
   font-size: 1.5em;
@@ -317,7 +321,7 @@ body:after {
 }
 @media (max-width: 379px) {
   .header__search_Layout > input[type=search] {
-    width: 15em;
+    width: 80vw;
   }
 }
 
