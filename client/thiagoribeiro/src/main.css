@@ -315,6 +315,11 @@ body:after {
   width: 20em;
   padding: 10px 15px 10px 2.5em;
 }
+@media (max-width: 379px) {
+  .header__search_Layout > input[type=search] {
+    width: 15em;
+  }
+}
 
 .header__title {
   text-align: center;

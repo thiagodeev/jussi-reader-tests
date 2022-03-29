@@ -25,5 +25,9 @@
   > input[type="search"]{
     width: 20em;
     padding: 10px 15px 10px 2.5em;
+
+    @include breakpoint(mobile, max){
+      width: 15em;
+    };
   }
 }
