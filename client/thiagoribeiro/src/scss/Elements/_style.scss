@@ -54,12 +54,12 @@ body {
 
   @include breakpoint(tablet, min){
     @include breakpoint(medium, max){
-      padding: 1.5em 3em;
+      padding: 1em 3em;
     };
   };
 
   @include breakpoint(medium, min){
-    padding: 2em 10vw;
+    padding: 1em 10vw;
   }
 
   //fix the Background gradient-color
