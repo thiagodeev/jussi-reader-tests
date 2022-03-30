@@ -223,21 +223,21 @@ body {
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   color: #FFF;
-  padding: 0 1em;
+  padding: 0.5em 1em;
 }
 @media (min-width: 380px) and (max-width: 739px) {
   body {
-    padding: 0 2em;
+    padding: 1em 2em;
   }
 }
 @media (min-width: 740px) and (max-width: 959px) {
   body {
-    padding: 0 3em;
+    padding: 1.5em 3em;
   }
 }
 @media (min-width: 960px) {
   body {
-    padding: 0 10vw;
+    padding: 2em 10vw;
   }
 }
 body:after {
@@ -266,20 +266,24 @@ body:after {
 }
 @media (min-width: 740px) {
   .header__categories ul .flex-item:nth-child(1) {
-    padding-right: 10px;
+    padding-right: 5px;
   }
   .header__categories ul .flex-item:nth-child(2) {
-    padding: 0 10px;
+    padding: 0 5px;
   }
   .header__categories ul .flex-item:nth-child(3) {
-    padding-left: 10px;
+    padding-left: 5px;
   }
 }
 .header__categories ul .flex-item a {
   display: block;
   width: 100%;
   height: 100%;
-  margin: 0 2px;
+}
+@media (max-width: 300px) {
+  .header__categories ul .flex-item a {
+    margin: 0 2px;
+  }
 }
 @media (min-width: 300px) {
   .header__categories ul .flex-item + .flex-item {
@@ -340,8 +344,8 @@ body:after {
   background-color: #FFF;
 }
 .header__search > input[type=search]:focus {
-  box-shadow: 0 0 3px 0 #1183d6;
-  border-color: #1183d6;
+  box-shadow: 0 0 3px 0 #60eca6;
+  border-color: #60eca6;
   outline: none;
 }
 
@@ -374,8 +378,11 @@ body:after {
   animation: textclip 5s linear infinite;
 }
 
+.header__title_Layout {
+  font-size: 2.5rem;
+}
 .header__title_Layout img {
-  height: 1.7rem;
+  height: 1em;
   width: auto;
 }
 

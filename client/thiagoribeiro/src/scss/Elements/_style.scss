@@ -44,22 +44,22 @@ html {
 body {
   @include font($main-font, 400);
   color: $primary-text-color;
-  padding: 0 1em;
+  padding: 0.5em 1em;
 
   @include breakpoint(mobile, min){
     @include breakpoint(tablet, max){
-      padding: 0 2em;
+      padding: 1em 2em;
     };
   };
 
   @include breakpoint(tablet, min){
     @include breakpoint(medium, max){
-      padding: 0 3em;
+      padding: 1.5em 3em;
     };
   };
 
   @include breakpoint(medium, min){
-    padding: 0 10vw;
+    padding: 2em 10vw;
   }
 
   //fix the Background gradient-color
