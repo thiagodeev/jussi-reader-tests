@@ -12,8 +12,8 @@
     background-color: $light-color;
 
     &:focus {
-      box-shadow: 0 0 3px 0 #1183d6;
-      border-color: #1183d6;
+      box-shadow: 0 0 3px 0 $secondary-text-color;
+      border-color: $secondary-text-color;
       outline: none;
     }
   }
@@ -27,7 +27,7 @@
     padding: 10px 15px 10px 2.5em;
 
     @include breakpoint(mobile, max){
-      width: 80vw;
+      width: 100%;
     };
   }
 }

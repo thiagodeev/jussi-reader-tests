@@ -42,8 +42,25 @@ html {
 }
 
 body {
-  color: $primary-text-color;
   @include font($main-font, 400);
+  color: $primary-text-color;
+  padding: 0.5em 1em;
+
+  @include breakpoint(mobile, min){
+    @include breakpoint(tablet, max){
+      padding: 1em 2em;
+    };
+  };
+
+  @include breakpoint(tablet, min){
+    @include breakpoint(medium, max){
+      padding: 1em 3em;
+    };
+  };
+
+  @include breakpoint(medium, min){
+    padding: 1em 10vw;
+  }
 
   //fix the Background gradient-color
   &:after{

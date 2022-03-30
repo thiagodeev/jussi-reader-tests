@@ -5,7 +5,48 @@
   flex-direction: column;
   align-items: center;
 
+  .container{
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+
+    &:first-child{
+      align-items: center;
+    }
+
+    @include breakpoint(tablet, min){
+      flex-direction: row;
+      justify-content: space-between;
+      align-items: center;
+
+      &:nth-child(2) .orderBy-divider{
+        display: none;
+      }
+    };
+
+  }
+
   a{
     color: $secondary-text-color;
+  }
+}
+
+.header_Layout{
+  .container{
+    width: 100%;
+  }
+
+  hr {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  hr.large-screen-divider{
+    display: none;
+    width: 100%;
+
+    @include breakpoint(tablet, min){
+      display: block;
+    }
   }
 }
