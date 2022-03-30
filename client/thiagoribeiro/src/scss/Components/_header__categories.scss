@@ -21,18 +21,9 @@
     }
 
     &:last-child{
-
-
       &::after{
         display: none;
       }
-    }
-    
-    
+    } 
   }
-
-  a{
-    color: $secondary-text-color;
-  }
-
 }
