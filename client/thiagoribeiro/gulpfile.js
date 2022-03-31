@@ -27,5 +27,4 @@ function compileJS(){
 
 function watch(){
     gulp.watch("src/scss/**/*.scss", compileSass);
-    gulp.watch("src/js/**/*.js", compileJS);
 }
