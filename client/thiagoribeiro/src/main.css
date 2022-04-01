@@ -430,3 +430,7 @@ body:after {
     display: block;
   }
 }
+
+.image {
+  height: 50px;
+}
