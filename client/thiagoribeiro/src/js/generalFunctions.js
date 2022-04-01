@@ -10,27 +10,42 @@ function getAllNewsOf (newsFromAPI) {
   return allNews;
 };
 
+
+function returnAListOfCategories(listOfCategories, objectKey, HTMLElement){
+  let result = [];
+  
+  for (let categorie of listOfCategories){
+    result.push(`<${HTMLElement}>${categorie[objectKey]}</${HTMLElement}>`);
+  }
+
+  console.log()
+
+  return result.join("");
+}
+
 function newsTemplate(news){
+
+
   return  `
-    <a href="${news.url}">
+    <div onclick="location.href='${news.url}'">
       <div>
         <img class="image" src="${news.image}" alt="">
       </div>
       <div>
         <h2 class="title">${news.title}</h2>
         <p class="date_published">${news.date_published}</p>
-        <p class="excerpt">${news.exerpt}</p>
+        <p class="excerpt">${news.excerpt}</p>
         <div class="categories">
+          ${returnAListOfCategories(news.categories, "name", "span")}
         </div>
       </div>
-    </a>
+    </div>
   `;
 }
 
 function writeNewsOnHTML(allNews){
-  for (let news of allNews){
-    console.log(news);
-    
+  for (let news of allNews){ 
     document.body.insertAdjacentHTML("beforeend", newsTemplate(news));
+    console.log(news);
   }
 };
