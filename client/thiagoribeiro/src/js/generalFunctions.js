@@ -18,8 +18,6 @@ function returnAListOfCategories(listOfCategories, objectKey, HTMLElement){
     result.push(`<${HTMLElement}>${categorie[objectKey]}</${HTMLElement}>`);
   }
 
-  console.log()
-
   return result.join("");
 }
 
@@ -27,15 +25,15 @@ function newsTemplate(news){
 
 
   return  `
-    <div onclick="location.href='${news.url}'">
+    <div class="newsList__news" onclick="location.href='${news.url}'">
       <div>
-        <img class="image" src="${news.image}" alt="">
+        <img class="newsList__news__image" src="${news.image}" alt="">
       </div>
       <div>
-        <h2 class="title">${news.title}</h2>
-        <p class="date_published">${news.date_published}</p>
-        <p class="excerpt">${news.excerpt}</p>
-        <div class="categories">
+        <h2 class="newsList__news__title">${news.title}</h2>
+        <p class="newsList__news__date_published">${news.date_published}</p>
+        <p class="newsList__news__excerpt">${news.excerpt}</p>
+        <div class="newsList__news__categories">
           ${returnAListOfCategories(news.categories, "name", "span")}
         </div>
       </div>
@@ -45,7 +43,6 @@ function newsTemplate(news){
 
 function writeNewsOnHTML(allNews){
   for (let news of allNews){ 
-    document.body.insertAdjacentHTML("beforeend", newsTemplate(news));
-    console.log(news);
+    document.getElementById("newsList").insertAdjacentHTML("beforeend", newsTemplate(news));
   }
 };
