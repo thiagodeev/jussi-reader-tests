@@ -10,7 +10,6 @@ function getAllNewsOf (newsFromAPI) {
   return allNews;
 };
 
-
 function returnAListOfCategories(listOfCategories, objectKey, HTMLElement){
   let result = [];
   
@@ -22,8 +21,6 @@ function returnAListOfCategories(listOfCategories, objectKey, HTMLElement){
 }
 
 function newsTemplate(news){
-
-
   return  `
     <div class="newsList__news" onclick="location.href='${news.url}'">
       <div>
@@ -41,8 +38,8 @@ function newsTemplate(news){
   `;
 }
 
-function writeNewsOnHTML(allNews){
-  for (let news of allNews){ 
-    document.getElementById("newsList").insertAdjacentHTML("beforeend", newsTemplate(news));
-  }
+function writeNewsOnHTML(allNews, numberOfNewsPerPage){
+  allNews.forEach((element => {
+    document.getElementById("newsList").insertAdjacentHTML("beforeend", newsTemplate(element));
+  }));
 };
