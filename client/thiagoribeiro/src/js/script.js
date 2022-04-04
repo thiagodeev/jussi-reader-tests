@@ -2,33 +2,26 @@
 
   const numberOfNewsPerPage = 6;
   const newsFromAPI = await fetchAPI(newsURLs);
+  let currentPage = 1;
 
   let listOfAllAPINews = getAllNewsOf(newsFromAPI);
 
-  function makePagination(list, paginationNumber){
-    let counter = 0;
+  function divideTheArray(newsList, paginationNumber){
+    let tempArray = Array.from(newsList);
+    let organizedNewsList = [];
+    
+    while (tempArray.length) {
+        organizedNewsList.push(tempArray.splice(0, paginationNumber));
+    }
 
-    let teste = list;
-    console.log(teste);
-    let testando = teste.slice(0, 6);
-    console.log(testando);
-
-    console.log(teste);
-    teste.splice(6, 0);
-    console.log(teste);
-
-    testando = teste.slice(0, 6);
-    console.log(testando);
-    // for (const [index, value] of list.entries()){
-    //   if(index)
-    // }
+    return organizedNewsList;
   }
 
-  let newsGroupByPage = makePagination(listOfAllAPINews, numberOfNewsPerPage);
-  console.log(newsGroupByPage);
+  let newsGroupByPage = divideTheArray(listOfAllAPINews, numberOfNewsPerPage);
+ 
+  console.log(newsGroupByPage)
 
-  console.log(listOfAllAPINews)
-  writeNewsOnHTML(listOfAllAPINews);
+  writeNewsOnHTML(newsGroupByPage, currentPage);
   
   //get all the News in HTML format
   // let allHTMLNews = Array.from(document.getElementsByClassName("newsList__news"));

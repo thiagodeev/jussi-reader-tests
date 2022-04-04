@@ -38,8 +38,28 @@ function newsTemplate(news){
   `;
 }
 
-function writeNewsOnHTML(allNews, numberOfNewsPerPage){
-  allNews.forEach((element => {
-    document.getElementById("newsList").insertAdjacentHTML("beforeend", newsTemplate(element));
-  }));
+// function writeNewsOnHTML(organizedNews, numberOfNewsPerPage){
+//   let paginationElement = document.getElementById("pagination");
+//   let paginationItem;
+//   let paginationNumberToShow;
+  
+//   organizedNews.forEach((news, index) => {
+//     //write news on HTML
+//     news.forEach(element => {
+//       document.getElementById("newsList").insertAdjacentHTML("beforeend", newsTemplate(element));
+//     });
+
+//     //write paginaton
+//     paginationNumberToShow = index + 1;
+//     paginationItem = `<div>${paginationNumberToShow}</div>`;
+//     paginationElement.insertAdjacentHTML("beforeend", paginationItem);
+//   });
+// };
+
+function writeNewsOnHTML(organizedNews, currentPage){
+  writePagination(organizedNews);
+  
+  organizedNews[currentPage].forEach((news, index) => {
+      document.getElementById("newsList").insertAdjacentHTML("beforeend", newsTemplate(news));
+  });
 };
