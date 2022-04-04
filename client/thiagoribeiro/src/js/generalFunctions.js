@@ -38,24 +38,6 @@ function newsTemplate(news){
   `;
 }
 
-// function renderNewsOnHTML(organizedNews, numberOfNewsPerPage){
-//   let paginationElement = document.getElementById("pagination");
-//   let paginationItem;
-//   let paginationNumberToShow;
-  
-//   organizedNews.forEach((news, index) => {
-//     //write news on HTML
-//     news.forEach(element => {
-//       document.getElementById("newsList").insertAdjacentHTML("beforeend", newsTemplate(element));
-//     });
-
-//     //write paginaton
-//     paginationNumberToShow = index + 1;
-//     paginationItem = `<div>${paginationNumberToShow}</div>`;
-//     paginationElement.insertAdjacentHTML("beforeend", paginationItem);
-//   });
-// };
-
 function renderNewsOnHTML(organizedNews, currentPage){
   organizedNews[currentPage].forEach((news, index) => {
       document.getElementById("newsList").insertAdjacentHTML("beforeend", newsTemplate(news));

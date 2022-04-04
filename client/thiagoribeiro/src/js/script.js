@@ -2,7 +2,7 @@
 
   const numberOfNewsPerPage = 6;
   const newsFromAPI = await fetchAPI(newsURLs);
-  let currentPage = 1;
+  let currentPage = 0;
 
   let listOfAllAPINews = getAllNewsOf(newsFromAPI);
 
@@ -21,8 +21,8 @@
  
   console.log(organizedNews)
 
-  writePagination(organizedNews);
   renderNewsOnHTML(organizedNews, currentPage);
+  writePagination(organizedNews);
   
   //get all the News in HTML format
   // let allHTMLNews = Array.from(document.getElementsByClassName("newsList__news"));
