@@ -51,7 +51,7 @@ function newsTemplate(newsList){
     `;
 
     element.addEventListener("click", element => {
-      window.location.href = news.url;
+      window.location.href = newsList.url;
     });
 
     return element;
