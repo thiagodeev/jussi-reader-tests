@@ -430,3 +430,16 @@ body:after {
     display: block;
   }
 }
+
+.newsList {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+}
+.newsList__news {
+  display: flex;
+  cursor: pointer;
+}
+.newsList__news__image {
+  height: 5em;
+}
