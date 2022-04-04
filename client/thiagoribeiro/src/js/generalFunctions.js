@@ -38,7 +38,7 @@ function newsTemplate(news){
   `;
 }
 
-// function writeNewsOnHTML(organizedNews, numberOfNewsPerPage){
+// function renderNewsOnHTML(organizedNews, numberOfNewsPerPage){
 //   let paginationElement = document.getElementById("pagination");
 //   let paginationItem;
 //   let paginationNumberToShow;
@@ -56,9 +56,7 @@ function newsTemplate(news){
 //   });
 // };
 
-function writeNewsOnHTML(organizedNews, currentPage){
-  writePagination(organizedNews);
-  
+function renderNewsOnHTML(organizedNews, currentPage){
   organizedNews[currentPage].forEach((news, index) => {
       document.getElementById("newsList").insertAdjacentHTML("beforeend", newsTemplate(news));
   });

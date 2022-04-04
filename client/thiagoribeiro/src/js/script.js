@@ -17,11 +17,12 @@
     return organizedNewsList;
   }
 
-  let newsGroupByPage = divideTheArray(listOfAllAPINews, numberOfNewsPerPage);
+  let organizedNews = divideTheArray(listOfAllAPINews, numberOfNewsPerPage);
  
-  console.log(newsGroupByPage)
+  console.log(organizedNews)
 
-  writeNewsOnHTML(newsGroupByPage, currentPage);
+  writePagination(organizedNews);
+  renderNewsOnHTML(organizedNews, currentPage);
   
   //get all the News in HTML format
   // let allHTMLNews = Array.from(document.getElementsByClassName("newsList__news"));
