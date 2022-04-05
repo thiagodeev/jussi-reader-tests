@@ -10,6 +10,17 @@ function getAllNewsOf (newsFromAPI) {
   return allNews;
 };
 
+function divideTheArray(arrayToDivide, divisorNumber){
+  let tempArray = Array.from(arrayToDivide);
+  let organizedNewsList = [];
+  
+  while (tempArray.length) {
+    organizedNewsList.push(tempArray.splice(0, divisorNumber));
+  }
+
+  return organizedNewsList;
+}
+
 function returnAListOfCategories(listOfCategories, objectKey, HTMLElement){
   let result = [];
   
@@ -20,26 +31,44 @@ function returnAListOfCategories(listOfCategories, objectKey, HTMLElement){
   return result.join("");
 }
 
-function newsTemplate(news){
-  return  `
-    <div class="newsList__news" onclick="location.href='${news.url}'">
+function newsTemplate(newsList){
+  let element;
+
+  element = document.createElement("div");
+  element.classList.add("newsList__news");
+  element.innerHTML = `      
       <div>
-        <img class="newsList__news__image" src="${news.image}" alt="">
+        <img class="newsList__news__image" src="${newsList.image}" alt="">
       </div>
       <div>
-        <h2 class="newsList__news__title">${news.title}</h2>
-        <p class="newsList__news__date_published">${news.date_published}</p>
-        <p class="newsList__news__excerpt">${news.excerpt}</p>
+        <h2 class="newsList__news__title">${newsList.title}</h2>
+        <p class="newsList__news__date_published">${newsList.date_published}</p>
+        <p class="newsList__news__excerpt">${newsList.excerpt}</p>
         <div class="newsList__news__categories">
-          ${returnAListOfCategories(news.categories, "name", "span")}
+          ${returnAListOfCategories(newsList.categories, "name", "span")}
         </div>
       </div>
-    </div>
-  `;
+    `;
+
+    element.addEventListener("click", element => {
+      window.location.href = newsList.url;
+    });
+
+    return element;
 }
 
-function writeNewsOnHTML(allNews, numberOfNewsPerPage){
-  allNews.forEach((element => {
-    document.getElementById("newsList").insertAdjacentHTML("beforeend", newsTemplate(element));
-  }));
+function renderNewsOnHTML(organizedNews, currentPage = 0){
+  organizedNews[currentPage].forEach(news => {
+      document.getElementById("newsList").appendChild(news);
+  });
+};
+
+function createsHTMLNewsFrom(listToConvert){
+  let listWithHTMLElements = [];
+
+  listToConvert.forEach((element, index) => {
+    listWithHTMLElements.push(newsTemplate(element));
+  });
+
+  return listWithHTMLElements;
 };
