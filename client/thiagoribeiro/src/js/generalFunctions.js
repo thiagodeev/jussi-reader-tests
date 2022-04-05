@@ -19,7 +19,7 @@ function divideTheArray(arrayToDivide, divisorNumber){
   }
 
   return organizedNewsList;
-}
+};
 
 function returnAListOfCategories(listOfCategories, objectKey, HTMLElement){
   let result = [];
@@ -29,7 +29,7 @@ function returnAListOfCategories(listOfCategories, objectKey, HTMLElement){
   }
 
   return result.join("");
-}
+};
 
 function newsTemplate(newsList){
   let element;
@@ -55,11 +55,13 @@ function newsTemplate(newsList){
     });
 
     return element;
-}
+};
 
 function renderNewsOnHTML(organizedNews, currentPage = 0){
+  deleteChildElements(document.getElementById("newsList"));
+
   organizedNews[currentPage].forEach(news => {
-      document.getElementById("newsList").appendChild(news);
+    document.getElementById("newsList").appendChild(news);
   });
 };
 
@@ -71,4 +73,9 @@ function createsHTMLNewsFrom(listToConvert){
   });
 
   return listWithHTMLElements;
+};
+
+function deleteChildElements(element){
+  //Faster to remove content than .innerHTML=""
+  while (element.firstChild) {element.removeChild(element.lastChild);};
 };
