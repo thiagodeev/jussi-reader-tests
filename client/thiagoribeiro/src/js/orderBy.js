@@ -1,9 +1,14 @@
 //********** title **********//
 function orderByTitle(newsList){
-  let ordenedList = Array.from(newsList).sort((a, b) => a.title < b.title ? -1 : 1);
+  let ordenedList = Array.from(newsList).sort((a, b) => {
+    let x = a.title.toUpperCase();
+    let y = b.title.toUpperCase();
+
+    return x < y ? -1 : 1;
+  });
 
   return ordenedList;
-}
+};
 
 function renderHTMLListOrderedByTitle(elementToRender, renderfunction){
   let orderByTitleElement = document.getElementById("orderByTitle");
@@ -20,10 +25,15 @@ function renderHTMLListOrderedByTitle(elementToRender, renderfunction){
 
 //********** date **********//
 function orderByDate(newsList){
-  let ordenedList = Array.from(newsList).sort((a, b) => a.date_published > b.date_published ? -1 : 1);
+  let ordenedList = Array.from(newsList).sort((a, b) => {
+    let x = a.date_published.toUpperCase();
+    let y = b.date_published.toUpperCase();
+
+    return x < y ? -1 : 1;
+  });
 
   return ordenedList;
-}
+};
 
 function renderHTMLListOrderedByDate(elementToRender, renderfunction){
   let orderByDateElement = document.getElementById("orderByDate");

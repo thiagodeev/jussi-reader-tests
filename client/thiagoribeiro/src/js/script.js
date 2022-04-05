@@ -4,6 +4,8 @@
 
   let allAPINews = getAllNewsOf(newsFromAPI);
 
+  console.log(allAPINews)
+
   function formatNewsElement(elementToFormat){
     const allNewsInHTMLFormat = createsHTMLNewsFrom(elementToFormat);
     const organizedNews = divideTheArray(allNewsInHTMLFormat, numberOfNewsPerPage);
