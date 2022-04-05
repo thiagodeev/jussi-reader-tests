@@ -34,6 +34,8 @@ function returnAListOfCategories(listOfCategories, objectKey, HTMLElement){
 function newsTemplate(newsList){
   let element;
 
+  let date = new Date(newsList.date_published);
+
   element = document.createElement("div");
   element.classList.add("newsList__news");
   element.innerHTML = `      
@@ -42,7 +44,7 @@ function newsTemplate(newsList){
       </div>
       <div>
         <h2 class="newsList__news__title">${newsList.title}</h2>
-        <p class="newsList__news__date_published">${newsList.date_published}</p>
+        <p class="newsList__news__date_published">${date.toLocaleDateString("pt-BR")}</p>
         <p class="newsList__news__excerpt">${newsList.excerpt}</p>
         <div class="newsList__news__categories">
           ${returnAListOfCategories(newsList.categories, "name", "span")}

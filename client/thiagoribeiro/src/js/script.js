@@ -2,22 +2,23 @@
   const numberOfNewsPerPage = 6;
   const newsFromAPI = await fetchAPI(newsURLs);
 
-  let listOfAllAPINews = getAllNewsOf(newsFromAPI);
-  console.log(listOfAllAPINews)
-  let allNewsInHTML = createsHTMLNewsFrom(listOfAllAPINews);
-  let organizedNews = divideTheArray(allNewsInHTML, numberOfNewsPerPage);
+  let allAPINews = getAllNewsOf(newsFromAPI);
 
-  renderNewsOnHTML(organizedNews);
+  function formatNewsElement(elementToFormat, numberOfNewsPerPage){
+    let allNewsInHTMLFormat = createsHTMLNewsFrom(elementToFormat);
+    let organizedNews = divideTheArray(allNewsInHTMLFormat, numberOfNewsPerPage);
 
-  writePagination(organizedNews);
+    return organizedNews;
+  }
 
-  // let teste = orderByTitle(listOfAllAPINews);
-  // let teste1 = createsHTMLNewsFrom(teste);
-  // let teste2 = divideTheArray(teste1, numberOfNewsPerPage);
-
-  // renderNewsOnHTML(teste2);
-
-  // writePagination(teste2);
+  let organizedNews = formatNewsElement(allAPINews, numberOfNewsPerPage);
+  
+  function renderNews(arrayToRender){
+    renderNewsOnHTML(arrayToRender);
+    writePagination(arrayToRender);
+  };
+  
+  renderNews(organizedNews);
 })();
 
 
