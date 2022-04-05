@@ -23,12 +23,10 @@
   //********** orderBy **********//
   let newsOrganizedByTitle = orderByTitle(allAPINews);
   let HTMLnewsOrganizedByTitle = formatNewsElement(newsOrganizedByTitle);
-
   renderHTMLListOrderedByTitle(HTMLnewsOrganizedByTitle, renderNews);
   
   let newsOrganizedByDate = orderByDate(allAPINews);
   let HTMLnewsOrganizedByDate = formatNewsElement(newsOrganizedByDate);
-
   renderHTMLListOrderedByDate(HTMLnewsOrganizedByDate, renderNews);
 
 })();
