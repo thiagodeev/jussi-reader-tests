@@ -10,12 +10,12 @@ function getAllNewsOf (newsFromAPI) {
   return allNews;
 };
 
-function divideTheArray(arrayToDivide, divisorNumber){
+function divideTheArray(arrayToDivide){
   let tempArray = Array.from(arrayToDivide);
   let organizedNewsList = [];
   
   while (tempArray.length) {
-    organizedNewsList.push(tempArray.splice(0, divisorNumber));
+    organizedNewsList.push(tempArray.splice(0, numberOfNewsPerPage));
   }
 
   return organizedNewsList;
@@ -70,7 +70,7 @@ function renderNewsOnHTML(organizedNews, currentPage = 0){
 function createsHTMLNewsFrom(listToConvert){
   let listWithHTMLElements = [];
 
-  listToConvert.forEach((element, index) => {
+  listToConvert.forEach(element => {
     listWithHTMLElements.push(newsTemplate(element));
   });
 

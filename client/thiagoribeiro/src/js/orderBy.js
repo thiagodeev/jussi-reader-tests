@@ -9,9 +9,3 @@ function orderByDate(newsList){
 
   return ordenedList;
 }
-
-// function setFunctionOnClick(element, functionToSet, functionParam){
-//   element.addEventListener("click", element => {
-//     functionToSet(functionParam);
-//   });
-// }
