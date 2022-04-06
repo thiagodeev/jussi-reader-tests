@@ -2,19 +2,23 @@
 
 .header__title{
 	text-align: center;
+	
+	a{
+		text-decoration: none;
 
-  span {
-    font-family: $title-font;
-    background: $linear-title-color;
-		background-size: auto auto;
-		background-clip: border-box;
-		background-size: 200% auto;
-		color: $primary-text-color;
-		background-clip: text;
-		-webkit-background-clip: text;
-		-webkit-text-fill-color: transparent;
-		animation: textclip 5s linear infinite;
-  }
+		span {
+			font-family: $title-font;
+			background: $linear-title-color;
+			background-size: auto auto;
+			background-clip: border-box;
+			background-size: 200% auto;
+			color: $primary-text-color;
+			background-clip: text;
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			animation: textclip 5s linear infinite;
+		}
+	}
 }
 
 .header__title_Layout{

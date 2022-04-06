@@ -29,7 +29,7 @@ function orderByDate(newsList){
     let x = a.date_published.toUpperCase();
     let y = b.date_published.toUpperCase();
 
-    return x < y ? -1 : 1;
+    return x > y ? -1 : 1;
   });
 
   return ordenedList;
