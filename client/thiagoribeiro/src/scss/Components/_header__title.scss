@@ -2,10 +2,11 @@
 
 .header__title{
 	text-align: center;
+	cursor: pointer;
 
-  span {
-    font-family: $title-font;
-    background: $linear-title-color;
+	span {
+		font-family: $title-font;
+		background: $linear-title-color;
 		background-size: auto auto;
 		background-clip: border-box;
 		background-size: 200% auto;
@@ -14,7 +15,7 @@
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		animation: textclip 5s linear infinite;
-  }
+	}
 }
 
 .header__title_Layout{

@@ -1,5 +1,6 @@
 ;(async function main (){
   numberOfNewsPerPage = 6;
+
   const newsFromAPI = await fetchAPI(newsURLs);
 
   let allAPINews = getAllNewsOf(newsFromAPI);
@@ -9,26 +10,29 @@
     const organizedNews = divideTheArray(allNewsInHTMLFormat, numberOfNewsPerPage);
 
     return organizedNews;
-  }
+  };
 
   let organizedNews = formatNewsElement(allAPINews);
   
+  // let orderByDateElement = document.getElementById("orderByDate");
+  // orderByDateElement.addEventListener("click", addEvent, true);
+  // let orderByTitleElement = document.getElementById("orderByTitle");
+  // orderByTitleElement.addEventListener("click", function addEvent(){console.log("hi")});
+
   function renderNews(arrayToRender){
     renderNewsOnHTML(arrayToRender);
     writePagination(arrayToRender);
   };
   
   renderNews(organizedNews);
+  addOrderBy(allAPINews, formatNewsElement, renderNews);
 
-  //********** orderBy **********//
-  let newsOrganizedByTitle = orderByTitle(allAPINews);
-  let HTMLnewsOrganizedByTitle = formatNewsElement(newsOrganizedByTitle);
-  renderHTMLListOrderedByTitle(HTMLnewsOrganizedByTitle, renderNews);
-  
-  let newsOrganizedByDate = orderByDate(allAPINews);
-  let HTMLnewsOrganizedByDate = formatNewsElement(newsOrganizedByDate);
-  renderHTMLListOrderedByDate(HTMLnewsOrganizedByDate, renderNews);
+  //********** categories **********//
+  let categoriesObject = createsCategoriesObject(allAPINews);
+  renderCategorieList(categoriesObject, formatNewsElement, renderNews);
 
+  //add click to title
+  titleLink(organizedNews, allAPINews, formatNewsElement, renderNews);
 })();
 
 

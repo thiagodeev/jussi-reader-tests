@@ -364,6 +364,7 @@ body:after {
 
 .header__title {
   text-align: center;
+  cursor: pointer;
 }
 .header__title span {
   font-family: "Marcellus", serif;

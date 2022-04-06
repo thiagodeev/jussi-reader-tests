@@ -1,3 +1,17 @@
+function titleLink(organizedNews, allAPINews, formatNewsElement, renderNews){
+  document.getElementById("title").onclick= function(){
+    renderNews(organizedNews);
+    addOrderBy(allAPINews, formatNewsElement, renderNews);
+    
+    //remove Active class from categories
+    let categoriesListElement = document.getElementById("categories-list");
+
+    for (let i=0; i < categoriesListElement.children.length; i++){
+      categoriesListElement.children[i].classList.remove('active');
+    }
+  }
+}
+
 function getAllNewsOf (newsFromAPI) {
   let allNews = [];
 
@@ -46,9 +60,7 @@ function newsTemplate(newsList){
         <h2 class="newsList__news__title">${newsList.title}</h2>
         <p class="newsList__news__date_published">${date.toLocaleDateString("pt-BR")}</p>
         <p class="newsList__news__excerpt">${newsList.excerpt}</p>
-        <div class="newsList__news__categories">
-          ${returnAListOfCategories(newsList.categories, "name", "span")}
-        </div>
+        <div class="newsList__news__categories">${returnAListOfCategories(newsList.categories, "name", "span")}</div>
       </div>
     `;
 
