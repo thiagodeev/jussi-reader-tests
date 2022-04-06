@@ -1,37 +1,7 @@
-// function createsCategoriesObject(listOfNews){
-//   let categoriesObject = {
-//     "Sem Categoria": []
-//   };
-//   let newsInHTML = createsHTMLNewsFrom(listOfNews);
-
-//   newsInHTML.forEach(element => {
-//     let categoriesList = element.getElementsByClassName("newsList__news__categories")[0];
-
-//     if(categoriesList.childElementCount == "0"){
-//       categoriesObject["Sem Categoria"].push(element);
-
-//     } else {
-//       [...categoriesList.children].forEach(categorieElement => {
-//         let categorie = categorieElement.innerText;
-
-//         if(!categoriesObject.hasOwnProperty(categorie)){
-//           categoriesObject[categorie] = [];
-//           categoriesObject[categorie].push(element);
-//         } else {
-//           categoriesObject[categorie].push(element);
-//         }
-//       });
-//     }
-//   })
-//   console.log(categoriesObject)
-//   return categoriesObject;
-// }
-
 function createsCategoriesObject(listOfNews){
   let categoriesObject = {
     "Sem Categoria": []
   };
-  // let newsInHTML = createsHTMLNewsFrom(listOfNews);
 
   listOfNews.forEach(element => {
     let categoriesList = element.categories;
@@ -56,13 +26,13 @@ function createsCategoriesObject(listOfNews){
   return categoriesObject;
 }
 
-function renderCategorieList(categoriesObject, FUNCTIONformatNewsElement, FUNCTIONrenderNews){
+function renderCategorieList(categoriesObject){
   let categoriesListElement = document.getElementById("categories-list");
   let HTMLCategoriesList = {};
   
   Object.entries(categoriesObject).forEach(([key, value]) => {
     // console.log(value)
-    HTMLCategoriesList[key] = FUNCTIONformatNewsElement(value);
+    HTMLCategoriesList[key] = formatNewsElement(value);
     // console.log(HTMLCategoriesList[key])
 
     //create <a> tag
@@ -75,7 +45,6 @@ function renderCategorieList(categoriesObject, FUNCTIONformatNewsElement, FUNCTI
     categorieItem.appendChild(categorieItemAnchor);
 
 
-
     categorieItem.addEventListener("click", element => {
       if(!element.currentTarget.classList.contains("active")){
         // console.log(categorieElements)
@@ -86,8 +55,8 @@ function renderCategorieList(categoriesObject, FUNCTIONformatNewsElement, FUNCTI
         }
         
         //write the page on HTML
-        FUNCTIONrenderNews(HTMLCategoriesList[key]);
-        addOrderBy(value, FUNCTIONformatNewsElement, FUNCTIONrenderNews);
+        renderNews(HTMLCategoriesList[key]);
+        addOrderBy(value);
 
         //adds the Active class to current clicked element
         element.currentTarget.classList.add("active");

@@ -14,5 +14,6 @@ function search(allAPINews){
       } 
 
     })
+    
   });
 }

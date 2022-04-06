@@ -5,7 +5,7 @@ function dataEvent(element){
   document.getElementById("orderByTitle").removeAttribute('class');
 
   if(!element.currentTarget.classList.contains("active")){
-    element.currentTarget.FUNCTIONrender(element.currentTarget.elementToRender);
+    renderNews(element.currentTarget.elementToRender);
     
     element.currentTarget.classList.add("active");
   };
@@ -15,7 +15,7 @@ function titleEvent(element){
   document.getElementById("orderByDate").removeAttribute('class');
 
   if(!element.currentTarget.classList.contains("active")){
-    element.currentTarget.FUNCTIONrender(element.currentTarget.elementToRender);
+    renderNews(element.currentTarget.elementToRender);
     
     element.currentTarget.classList.add("active");
   };
@@ -35,13 +35,12 @@ function orderByTitle(newsList){
   return ordenedList;
 };
 
-function renderHTMLListOrderedByTitle(elementToRender, FUNCTIONrender){
+function renderHTMLListOrderedByTitle(elementToRender){
 
   let orderByTitleElement = document.getElementById("orderByTitle");
   orderByTitleElement.removeAttribute('class');
 
   orderByTitleElement.elementToRender = elementToRender;
-  orderByTitleElement.FUNCTIONrender = FUNCTIONrender;
 
   if(isTheDataEventAddedForTheFirstTime){
     orderByTitleElement.removeEventListener('click', titleEvent, true);
@@ -64,12 +63,11 @@ function orderByDate(newsList){
   return ordenedList;
 };
 
-function renderHTMLListOrderedByDate(elementToRender, FUNCTIONrender){
+function renderHTMLListOrderedByDate(elementToRender){
   let orderByDateElement = document.getElementById("orderByDate");
   orderByDateElement.removeAttribute('class');
 
   orderByDateElement.elementToRender = elementToRender;
-  orderByDateElement.FUNCTIONrender = FUNCTIONrender;
 
   if(isTheDataEventAddedForTheFirstTime){
     orderByDateElement.removeEventListener('click', dataEvent, true);
@@ -80,13 +78,13 @@ function renderHTMLListOrderedByDate(elementToRender, FUNCTIONrender){
 };
 
 //********** title and date **********//
-function addOrderBy(elementToRender, FUNCTIONformatNewsElement, FUNCTIONrender){
+function addOrderBy(elementToRender){
   let newsOrganizedByTitle = orderByTitle(elementToRender);
-  let HTMLnewsOrganizedByTitle = FUNCTIONformatNewsElement(newsOrganizedByTitle);
+  let HTMLnewsOrganizedByTitle = formatNewsElement(newsOrganizedByTitle);
 
   let newsOrganizedByDate = orderByDate(elementToRender);
-  let HTMLnewsOrganizedByDate = FUNCTIONformatNewsElement(newsOrganizedByDate);
+  let HTMLnewsOrganizedByDate = formatNewsElement(newsOrganizedByDate);
 
-  renderHTMLListOrderedByTitle(HTMLnewsOrganizedByTitle, FUNCTIONrender);
-  renderHTMLListOrderedByDate(HTMLnewsOrganizedByDate, FUNCTIONrender);
+  renderHTMLListOrderedByTitle(HTMLnewsOrganizedByTitle);
+  renderHTMLListOrderedByDate(HTMLnewsOrganizedByDate);
 }

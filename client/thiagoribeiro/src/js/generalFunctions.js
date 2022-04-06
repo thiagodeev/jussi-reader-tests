@@ -1,7 +1,7 @@
-function titleLink(organizedNews, allAPINews, formatNewsElement, renderNews){
+function titleLink(organizedNews, allAPINews){
   document.getElementById("title").onclick= function(){
     renderNews(organizedNews);
-    addOrderBy(allAPINews, formatNewsElement, renderNews);
+    addOrderBy(allAPINews);
     
     //remove Active class from categories
     let categoriesListElement = document.getElementById("categories-list");
