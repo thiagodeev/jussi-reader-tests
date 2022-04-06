@@ -23,11 +23,9 @@
   
   renderNews(organizedNews);
 
-  
   let categoriesObject = createsCategoriesObject(allAPINews);
   console.log(categoriesObject);
-
-  // let categoriesListElement = document.
+  renderCategorieList(categoriesObject);
 
   //********** orderBy **********//
   let newsOrganizedByTitle = orderByTitle(allAPINews);

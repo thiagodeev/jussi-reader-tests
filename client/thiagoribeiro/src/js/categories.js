@@ -26,3 +26,20 @@ function createsCategoriesObject(listOfNews){
 
   return categoriesObject;
 }
+
+function renderCategorieList(categoriesObject){
+  let categoriesListElement = document.getElementById("categories-list");
+
+  Object.entries(categoriesObject).forEach(([key, value]) => {
+    //create <a> tag
+    let categorieItemAnchor = document.createElement("a");
+    categorieItemAnchor.setAttribute("href", "#");
+    categorieItemAnchor.innerText = key;
+    //create <li> tag and append the <a>
+    let categorieItem = document.createElement("li");
+    categorieItem.classList.add("flex-item");
+    categorieItem.appendChild(categorieItemAnchor);
+
+    categoriesListElement.appendChild(categorieItem);
+  });
+};
