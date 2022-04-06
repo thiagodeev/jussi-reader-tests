@@ -31,6 +31,9 @@
   let categoriesObject = createsCategoriesObject(allAPINews);
   renderCategorieList(categoriesObject, formatNewsElement, renderNews);
 
+  let teste = createsHTMLNewsFrom(allAPINews);
+  console.log(teste)
+  search(teste);
   //add click to title
   titleLink(organizedNews, allAPINews, formatNewsElement, renderNews);
 })();
