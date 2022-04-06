@@ -8,9 +8,10 @@
     <link rel="icon" type="image/x-icon" href="assets/favicon.png">
 
     <link rel="stylesheet" href="main.css">
-    <script type="text/javascript" src="js/generalFunctions.js"></script>
     <script type="text/javascript" src="js/api.js"></script>
+    <script type="text/javascript" src="js/generalFunctions.js"></script>
     <script type="text/javascript" src="js/pagination.js"></script>
+    <script type="text/javascript" src="js/orderBy.js"></script>
     <script type="text/javascript" src="js/script.js"></script>
   </head>
 
@@ -41,11 +42,11 @@
         <div class="header__orderBy header__orderBy_Layout">
           <p>Ordenar por:</p>
           <nav>
-            <a href="#">
+            <a id="orderByTitle" href="#">
               <span class="header__orderBy__titleFilterIcon">A</span>
               <span class="header__orderBy__filterTitle">título</span>
             </a>
-            <a href="#">
+            <a id="orderByDate" href="#">
               <span class="header__orderBy__dateFilterIcon"></span>
               <span class="header__orderBy__filterTitle">data</span>
             </a>

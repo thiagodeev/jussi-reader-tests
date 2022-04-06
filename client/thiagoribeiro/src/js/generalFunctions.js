@@ -10,16 +10,16 @@ function getAllNewsOf (newsFromAPI) {
   return allNews;
 };
 
-function divideTheArray(arrayToDivide, divisorNumber){
+function divideTheArray(arrayToDivide){
   let tempArray = Array.from(arrayToDivide);
   let organizedNewsList = [];
   
   while (tempArray.length) {
-    organizedNewsList.push(tempArray.splice(0, divisorNumber));
+    organizedNewsList.push(tempArray.splice(0, numberOfNewsPerPage));
   }
 
   return organizedNewsList;
-}
+};
 
 function returnAListOfCategories(listOfCategories, objectKey, HTMLElement){
   let result = [];
@@ -29,10 +29,12 @@ function returnAListOfCategories(listOfCategories, objectKey, HTMLElement){
   }
 
   return result.join("");
-}
+};
 
 function newsTemplate(newsList){
   let element;
+
+  let date = new Date(newsList.date_published);
 
   element = document.createElement("div");
   element.classList.add("newsList__news");
@@ -42,7 +44,7 @@ function newsTemplate(newsList){
       </div>
       <div>
         <h2 class="newsList__news__title">${newsList.title}</h2>
-        <p class="newsList__news__date_published">${newsList.date_published}</p>
+        <p class="newsList__news__date_published">${date.toLocaleDateString("pt-BR")}</p>
         <p class="newsList__news__excerpt">${newsList.excerpt}</p>
         <div class="newsList__news__categories">
           ${returnAListOfCategories(newsList.categories, "name", "span")}
@@ -55,20 +57,27 @@ function newsTemplate(newsList){
     });
 
     return element;
-}
+};
 
 function renderNewsOnHTML(organizedNews, currentPage = 0){
+  deleteChildElements(document.getElementById("newsList"));
+
   organizedNews[currentPage].forEach(news => {
-      document.getElementById("newsList").appendChild(news);
+    document.getElementById("newsList").appendChild(news);
   });
 };
 
 function createsHTMLNewsFrom(listToConvert){
   let listWithHTMLElements = [];
 
-  listToConvert.forEach((element, index) => {
+  listToConvert.forEach(element => {
     listWithHTMLElements.push(newsTemplate(element));
   });
 
   return listWithHTMLElements;
+};
+
+function deleteChildElements(element){
+  //Faster to remove content than .innerHTML=""
+  while (element.firstChild) {element.removeChild(element.lastChild);};
 };

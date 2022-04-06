@@ -1,16 +1,34 @@
 ;(async function main (){
-  const numberOfNewsPerPage = 6;
+  numberOfNewsPerPage = 6;
   const newsFromAPI = await fetchAPI(newsURLs);
 
-  let listOfAllAPINews = getAllNewsOf(newsFromAPI);
+  let allAPINews = getAllNewsOf(newsFromAPI);
 
-  let allNewsInHTML = createsHTMLNewsFrom(listOfAllAPINews);
+  function formatNewsElement(elementToFormat){
+    const allNewsInHTMLFormat = createsHTMLNewsFrom(elementToFormat);
+    const organizedNews = divideTheArray(allNewsInHTMLFormat, numberOfNewsPerPage);
 
-  let organizedNews = divideTheArray(allNewsInHTML, numberOfNewsPerPage);
+    return organizedNews;
+  }
 
-  renderNewsOnHTML(organizedNews);
+  let organizedNews = formatNewsElement(allAPINews);
+  
+  function renderNews(arrayToRender){
+    renderNewsOnHTML(arrayToRender);
+    writePagination(arrayToRender);
+  };
+  
+  renderNews(organizedNews);
 
-  writePagination(organizedNews);
+  //********** orderBy **********//
+  let newsOrganizedByTitle = orderByTitle(allAPINews);
+  let HTMLnewsOrganizedByTitle = formatNewsElement(newsOrganizedByTitle);
+  renderHTMLListOrderedByTitle(HTMLnewsOrganizedByTitle, renderNews);
+  
+  let newsOrganizedByDate = orderByDate(allAPINews);
+  let HTMLnewsOrganizedByDate = formatNewsElement(newsOrganizedByDate);
+  renderHTMLListOrderedByDate(HTMLnewsOrganizedByDate, renderNews);
+
 })();
 
 
