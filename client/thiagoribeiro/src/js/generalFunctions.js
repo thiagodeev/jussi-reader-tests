@@ -1,7 +1,7 @@
-function titleLink(organizedNews, allAPINews){
+function titleLink(organizedNews){
   document.getElementById("title").onclick= function(){
     renderNews(organizedNews);
-    addOrderBy(allAPINews);
+    addOrderBy(organizedNews);
     
     //remove Active class from categories
     let categoriesListElement = document.getElementById("categories-list");
@@ -49,6 +49,14 @@ function newsTemplate(newsList){
   let element;
 
   let date = new Date(newsList.date_published);
+  let options = {
+    year: 'numeric',
+    month: 'numeric',
+    day: 'numeric',
+    hour: 'numeric',
+    minute: 'numeric',
+    second: 'numeric'
+  };
 
   element = document.createElement("div");
   element.classList.add("newsList__news");
@@ -58,7 +66,7 @@ function newsTemplate(newsList){
       </div>
       <div>
         <h2 class="newsList__news__title">${newsList.title}</h2>
-        <p class="newsList__news__date_published">${date.toLocaleDateString("pt-BR")}</p>
+        <p class="newsList__news__date_published">${date.toLocaleDateString("pt-BR", options)}</p>
         <p class="newsList__news__excerpt">${newsList.excerpt}</p>
         <div class="newsList__news__categories">${returnAListOfCategories(newsList.categories, "name", "span")}</div>
       </div>

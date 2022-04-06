@@ -21,13 +21,11 @@ function titleEvent(element){
   };
 }
 
-// function addEvent(){console.log("hi")}
-
 //********** title **********//
 function orderByTitle(newsList){
   let ordenedList = Array.from(newsList).sort((a, b) => {
-    let x = a.title.toUpperCase();
-    let y = b.title.toUpperCase();
+    let x = a.getElementsByClassName("newsList__news__title")[0].innerText.toUpperCase();
+    let y = b.getElementsByClassName("newsList__news__title")[0].innerText.toUpperCase();
 
     return x < y ? -1 : 1;
   });
@@ -36,7 +34,6 @@ function orderByTitle(newsList){
 };
 
 function renderHTMLListOrderedByTitle(elementToRender){
-
   let orderByTitleElement = document.getElementById("orderByTitle");
   orderByTitleElement.removeAttribute('class');
 
@@ -54,8 +51,8 @@ function renderHTMLListOrderedByTitle(elementToRender){
 //********** date **********//
 function orderByDate(newsList){
   let ordenedList = Array.from(newsList).sort((a, b) => {
-    let x = a.date_published.toUpperCase();
-    let y = b.date_published.toUpperCase();
+    let x = a.getElementsByClassName("newsList__news__date_published")[0].innerText
+    let y = b.getElementsByClassName("newsList__news__date_published")[0].innerText
 
     return x > y ? -1 : 1;
   });
@@ -79,11 +76,8 @@ function renderHTMLListOrderedByDate(elementToRender){
 
 //********** title and date **********//
 function addOrderBy(elementToRender){
-  let newsOrganizedByTitle = orderByTitle(elementToRender);
-  let HTMLnewsOrganizedByTitle = formatNewsElement(newsOrganizedByTitle);
-
-  let newsOrganizedByDate = orderByDate(elementToRender);
-  let HTMLnewsOrganizedByDate = formatNewsElement(newsOrganizedByDate);
+  let HTMLnewsOrganizedByTitle = orderByTitle(elementToRender);
+  let HTMLnewsOrganizedByDate = orderByDate(elementToRender);
 
   renderHTMLListOrderedByTitle(HTMLnewsOrganizedByTitle);
   renderHTMLListOrderedByDate(HTMLnewsOrganizedByDate);

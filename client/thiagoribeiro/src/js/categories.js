@@ -4,14 +4,14 @@ function createsCategoriesObject(listOfNews){
   };
 
   listOfNews.forEach(element => {
-    let categoriesList = element.categories;
+    let categoriesList = element.getElementsByClassName("newsList__news__categories")[0];
 
-    if(categoriesList.length == "0"){
+    if(categoriesList.childElementCount == 0){
       categoriesObject["Sem Categoria"].push(element);
 
     } else {
-      categoriesList.forEach(categorieElement => {
-        let categorie = categorieElement.name;
+      Array.from(categoriesList.children).forEach(categorieElement => {
+        let categorie = categorieElement.innerText;
 
         if(!categoriesObject.hasOwnProperty(categorie)){
           categoriesObject[categorie] = [];
@@ -31,10 +31,6 @@ function renderCategorieList(categoriesObject){
   let HTMLCategoriesList = {};
   
   Object.entries(categoriesObject).forEach(([key, value]) => {
-    // console.log(value)
-    HTMLCategoriesList[key] = formatNewsElement(value);
-    // console.log(HTMLCategoriesList[key])
-
     //create <a> tag
     let categorieItemAnchor = document.createElement("a");
     categorieItemAnchor.setAttribute("href", "#");
@@ -55,7 +51,7 @@ function renderCategorieList(categoriesObject){
         }
         
         //write the page on HTML
-        renderNews(HTMLCategoriesList[key]);
+        renderNews(value);
         addOrderBy(value);
 
         //adds the Active class to current clicked element
