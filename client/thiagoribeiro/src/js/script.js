@@ -5,8 +5,6 @@
 
   let allAPINews = getAllNewsOf(newsFromAPI);
 
-  console.log(allAPINews)
-
   function formatNewsElement(elementToFormat){
     const allNewsInHTMLFormat = createsHTMLNewsFrom(elementToFormat);
     const organizedNews = divideTheArray(allNewsInHTMLFormat, numberOfNewsPerPage);
@@ -16,26 +14,25 @@
 
   let organizedNews = formatNewsElement(allAPINews);
   
+  // let orderByDateElement = document.getElementById("orderByDate");
+  // orderByDateElement.addEventListener("click", addEvent, true);
+  // let orderByTitleElement = document.getElementById("orderByTitle");
+  // orderByTitleElement.addEventListener("click", function addEvent(){console.log("hi")});
+
   function renderNews(arrayToRender){
     renderNewsOnHTML(arrayToRender);
     writePagination(arrayToRender);
   };
   
   renderNews(organizedNews);
+  addOrderBy(allAPINews, formatNewsElement, renderNews);
 
+  //********** categories **********//
   let categoriesObject = createsCategoriesObject(allAPINews);
-  console.log(categoriesObject);
-  renderCategorieList(categoriesObject);
+  renderCategorieList(categoriesObject, formatNewsElement, renderNews);
 
-  //********** orderBy **********//
-  let newsOrganizedByTitle = orderByTitle(allAPINews);
-  let HTMLnewsOrganizedByTitle = formatNewsElement(newsOrganizedByTitle);
-  renderHTMLListOrderedByTitle(HTMLnewsOrganizedByTitle, renderNews);
-  
-  let newsOrganizedByDate = orderByDate(allAPINews);
-  let HTMLnewsOrganizedByDate = formatNewsElement(newsOrganizedByDate);
-  renderHTMLListOrderedByDate(HTMLnewsOrganizedByDate, renderNews);
-
+  //add click to title
+  titleLink(organizedNews, allAPINews, formatNewsElement, renderNews);
 })();
 
 

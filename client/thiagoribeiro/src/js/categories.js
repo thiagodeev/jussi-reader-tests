@@ -1,36 +1,70 @@
+// function createsCategoriesObject(listOfNews){
+//   let categoriesObject = {
+//     "Sem Categoria": []
+//   };
+//   let newsInHTML = createsHTMLNewsFrom(listOfNews);
+
+//   newsInHTML.forEach(element => {
+//     let categoriesList = element.getElementsByClassName("newsList__news__categories")[0];
+
+//     if(categoriesList.childElementCount == "0"){
+//       categoriesObject["Sem Categoria"].push(element);
+
+//     } else {
+//       [...categoriesList.children].forEach(categorieElement => {
+//         let categorie = categorieElement.innerText;
+
+//         if(!categoriesObject.hasOwnProperty(categorie)){
+//           categoriesObject[categorie] = [];
+//           categoriesObject[categorie].push(element);
+//         } else {
+//           categoriesObject[categorie].push(element);
+//         }
+//       });
+//     }
+//   })
+//   console.log(categoriesObject)
+//   return categoriesObject;
+// }
+
 function createsCategoriesObject(listOfNews){
   let categoriesObject = {
     "Sem Categoria": []
   };
-  let newsInHTML = createsHTMLNewsFrom(listOfNews);
+  // let newsInHTML = createsHTMLNewsFrom(listOfNews);
 
-  newsInHTML.forEach(element => {
-    let news = element.getElementsByClassName("newsList__news__categories")[0];
+  listOfNews.forEach(element => {
+    let categoriesList = element.categories;
 
-    if(news.childElementCount == "0"){
-      categoriesObject["Sem Categoria"].push(news);
+    if(categoriesList.length == "0"){
+      categoriesObject["Sem Categoria"].push(element);
 
     } else {
-      let teste = [...news.children].forEach(element => {
-        let categorie = element.innerText;
+      categoriesList.forEach(categorieElement => {
+        let categorie = categorieElement.name;
 
         if(!categoriesObject.hasOwnProperty(categorie)){
           categoriesObject[categorie] = [];
-          categoriesObject[categorie].push(news);
+          categoriesObject[categorie].push(element);
         } else {
-          categoriesObject[categorie].push(news);
+          categoriesObject[categorie].push(element);
         }
       });
     }
   })
-
+  // console.log(categoriesObject)
   return categoriesObject;
 }
 
-function renderCategorieList(categoriesObject){
+function renderCategorieList(categoriesObject, FUNCTIONformatNewsElement, FUNCTIONrenderNews){
   let categoriesListElement = document.getElementById("categories-list");
-
+  let HTMLCategoriesList = {};
+  
   Object.entries(categoriesObject).forEach(([key, value]) => {
+    // console.log(value)
+    HTMLCategoriesList[key] = FUNCTIONformatNewsElement(value);
+    // console.log(HTMLCategoriesList[key])
+
     //create <a> tag
     let categorieItemAnchor = document.createElement("a");
     categorieItemAnchor.setAttribute("href", "#");
@@ -39,6 +73,26 @@ function renderCategorieList(categoriesObject){
     let categorieItem = document.createElement("li");
     categorieItem.classList.add("flex-item");
     categorieItem.appendChild(categorieItemAnchor);
+
+
+
+    categorieItem.addEventListener("click", element => {
+      if(!element.currentTarget.classList.contains("active")){
+        // console.log(categorieElements)
+
+        //removes the class Active from all categories items 
+        for (let i=0; i < categoriesListElement.children.length; i++){
+          categoriesListElement.children[i].classList.remove('active');
+        }
+        
+        //write the page on HTML
+        FUNCTIONrenderNews(HTMLCategoriesList[key]);
+        addOrderBy(value, FUNCTIONformatNewsElement, FUNCTIONrenderNews);
+
+        //adds the Active class to current clicked element
+        element.currentTarget.classList.add("active");
+      }
+    });
 
     categoriesListElement.appendChild(categorieItem);
   });

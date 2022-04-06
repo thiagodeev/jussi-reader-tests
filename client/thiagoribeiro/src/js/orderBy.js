@@ -1,3 +1,28 @@
+isTheDataEventAddedForTheFirstTime = false;
+isTheTitleEventAddedForTheFirstTime = false;
+
+function dataEvent(element){
+  document.getElementById("orderByTitle").removeAttribute('class');
+
+  if(!element.currentTarget.classList.contains("active")){
+    element.currentTarget.FUNCTIONrender(element.currentTarget.elementToRender);
+    
+    element.currentTarget.classList.add("active");
+  };
+}
+
+function titleEvent(element){
+  document.getElementById("orderByDate").removeAttribute('class');
+
+  if(!element.currentTarget.classList.contains("active")){
+    element.currentTarget.FUNCTIONrender(element.currentTarget.elementToRender);
+    
+    element.currentTarget.classList.add("active");
+  };
+}
+
+// function addEvent(){console.log("hi")}
+
 //********** title **********//
 function orderByTitle(newsList){
   let ordenedList = Array.from(newsList).sort((a, b) => {
@@ -10,17 +35,21 @@ function orderByTitle(newsList){
   return ordenedList;
 };
 
-function renderHTMLListOrderedByTitle(elementToRender, renderfunction){
+function renderHTMLListOrderedByTitle(elementToRender, FUNCTIONrender){
+
   let orderByTitleElement = document.getElementById("orderByTitle");
-  orderByTitleElement.addEventListener("click", element => {
-    document.getElementById("orderByDate").removeAttribute('class');
-    
-    if(!element.currentTarget.classList.contains("active")){
-      renderfunction(elementToRender);
-      
-      element.currentTarget.classList.add("active");
-    };
-  });
+  orderByTitleElement.removeAttribute('class');
+
+  orderByTitleElement.elementToRender = elementToRender;
+  orderByTitleElement.FUNCTIONrender = FUNCTIONrender;
+
+  if(isTheDataEventAddedForTheFirstTime){
+    orderByTitleElement.removeEventListener('click', titleEvent, true);
+  }
+
+  orderByTitleElement.addEventListener("click", titleEvent, true);
+
+  isTheTitleEventAddedForTheFirstTime = true;
 };
 
 //********** date **********//
@@ -35,18 +64,29 @@ function orderByDate(newsList){
   return ordenedList;
 };
 
-function renderHTMLListOrderedByDate(elementToRender, renderfunction){
+function renderHTMLListOrderedByDate(elementToRender, FUNCTIONrender){
   let orderByDateElement = document.getElementById("orderByDate");
-  orderByDateElement.addEventListener("click", element => {
-    document.getElementById("orderByTitle").removeAttribute('class');
+  orderByDateElement.removeAttribute('class');
 
-    if(!element.currentTarget.classList.contains("active")){
-      renderfunction(elementToRender);
-      
-      element.currentTarget.classList.add("active");
-    };
-  });
+  orderByDateElement.elementToRender = elementToRender;
+  orderByDateElement.FUNCTIONrender = FUNCTIONrender;
+
+  if(isTheDataEventAddedForTheFirstTime){
+    orderByDateElement.removeEventListener('click', dataEvent, true);
+  }
+  orderByDateElement.addEventListener("click", dataEvent, true);
+
+  isTheDataEventAddedForTheFirstTime = true;
 };
 
-// //********** title and date **********//
-// function renderOrderedBy(elementToRender)
+//********** title and date **********//
+function addOrderBy(elementToRender, FUNCTIONformatNewsElement, FUNCTIONrender){
+  let newsOrganizedByTitle = orderByTitle(elementToRender);
+  let HTMLnewsOrganizedByTitle = FUNCTIONformatNewsElement(newsOrganizedByTitle);
+
+  let newsOrganizedByDate = orderByDate(elementToRender);
+  let HTMLnewsOrganizedByDate = FUNCTIONformatNewsElement(newsOrganizedByDate);
+
+  renderHTMLListOrderedByTitle(HTMLnewsOrganizedByTitle, FUNCTIONrender);
+  renderHTMLListOrderedByDate(HTMLnewsOrganizedByDate, FUNCTIONrender);
+}
