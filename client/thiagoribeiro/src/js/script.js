@@ -1,5 +1,6 @@
 ;(async function main (){
   numberOfNewsPerPage = 6;
+
   const newsFromAPI = await fetchAPI(newsURLs);
 
   let allAPINews = getAllNewsOf(newsFromAPI);
@@ -11,7 +12,7 @@
     const organizedNews = divideTheArray(allNewsInHTMLFormat, numberOfNewsPerPage);
 
     return organizedNews;
-  }
+  };
 
   let organizedNews = formatNewsElement(allAPINews);
   
@@ -21,6 +22,12 @@
   };
   
   renderNews(organizedNews);
+
+  
+  let categoriesObject = createsCategoriesObject(allAPINews);
+  console.log(categoriesObject);
+
+  // let categoriesListElement = document.
 
   //********** orderBy **********//
   let newsOrganizedByTitle = orderByTitle(allAPINews);
