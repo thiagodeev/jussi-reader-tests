@@ -1,19 +1,49 @@
 .newsList{
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  // grid-template-columns: 1fr 1fr;
   gap: 2em;
 
   //temporari for test
-  grid-auto-rows: 17em;
-  font-size: 0.5em;
+  // grid-auto-rows: 17em;
+  // font-size: 0.5em;
 
   &__news{
-    display: flex;
+    display: grid;
     cursor: pointer;
+
+    grid-template:
+      "image title title"
+      "image date date"
+      "excerpt excerpt excerpt"
+      ". categories ."/ 1fr 1fr 1fr;
 
     &__image{
       height: 5em;
+      grid-area: image;
+    }
+    
+    &__title{
+      grid-area: title;
+
+      font-size: 1.2em;
+      margin: 0;
+    }
+
+    &__date_published{
+      grid-area: date;
+
+      margin: 0.5em 0 0 0;
+    }
+
+    &__excerpt{
+      grid-area: excerpt;
+
+      margin: 0.5em 0;
+    }
+
+    &__categories{
+      grid-area: categories;
     }
   }
 }

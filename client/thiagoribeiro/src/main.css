@@ -190,17 +190,17 @@ html {
 }
 @media (max-width: 379px) {
   html {
-    font-size: 14px;
+    font-size: 12px;
   }
 }
 @media (min-width: 380px) and (max-width: 739px) {
   html {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 @media (min-width: 740px) and (max-width: 959px) {
   html {
-    font-size: 17px;
+    font-size: 16px;
   }
 }
 @media (min-width: 960px) and (max-width: 1199px) {
@@ -210,12 +210,12 @@ html {
 }
 @media (min-width: 1200px) and (max-width: 1599px) {
   html {
-    font-size: 20px;
+    font-size: 19px;
   }
 }
 @media (min-width: 1600px) {
   html {
-    font-size: 24px;
+    font-size: 20px;
   }
 }
 
@@ -448,22 +448,36 @@ body:after {
 .newsList {
   position: relative;
   display: grid;
-  grid-template-columns: 1fr 1fr;
   gap: 2em;
-  grid-auto-rows: 17em;
-  font-size: 0.5em;
 }
 .newsList__news {
-  display: flex;
+  display: grid;
   cursor: pointer;
+  grid-template: "image title title" "image date date" "excerpt excerpt excerpt" ". categories ."/1fr 1fr 1fr;
 }
 .newsList__news__image {
   height: 5em;
+  grid-area: image;
+}
+.newsList__news__title {
+  grid-area: title;
+  font-size: 1.2em;
+  margin: 0;
+}
+.newsList__news__date_published {
+  grid-area: date;
+  margin: 0.5em 0 0 0;
+}
+.newsList__news__excerpt {
+  grid-area: excerpt;
+  margin: 0.5em 0;
+}
+.newsList__news__categories {
+  grid-area: categories;
 }
 
 .pagination {
   position: absolute;
-  bottom: 0px;
   width: 100vw;
   left: 0;
   padding-top: 4em;
