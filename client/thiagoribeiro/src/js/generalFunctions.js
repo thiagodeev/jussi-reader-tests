@@ -58,6 +58,13 @@ function newsTemplate(newsList){
     second: 'numeric'
   };
 
+  let excerpt = (function truncateString(str, num) {
+    if (str.length <= num) {
+      return str
+    }
+    return str.slice(0, num) + '...'
+  })(newsList.excerpt, 150);
+
   element = document.createElement("div");
   element.classList.add("newsList__news");
   element.innerHTML = `      
@@ -67,7 +74,7 @@ function newsTemplate(newsList){
       <div>
         <h2 class="newsList__news__title">${newsList.title}</h2>
         <p class="newsList__news__date_published">${date.toLocaleDateString("pt-BR", options)}</p>
-        <p class="newsList__news__excerpt">${newsList.excerpt}</p>
+        <p class="newsList__news__excerpt">${excerpt}</p>
         <div class="newsList__news__categories">${returnAListOfCategories(newsList.categories, "name", "span")}</div>
       </div>
     `;
