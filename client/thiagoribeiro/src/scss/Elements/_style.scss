@@ -3,6 +3,10 @@
 @use "../Tools" as *;
 
 
+ *{
+  box-sizing: border-box;
+ }
+
 html {
   font-size: 16px; //in case that browser doesn't support "rem"
 

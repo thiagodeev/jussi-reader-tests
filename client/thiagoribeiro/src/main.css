@@ -1,10 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Marcellus&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap");
-@keyframes textclip {
-  to {
-    background-position: 200% center;
-  }
-}
 html {
   line-height: 1.15;
   -webkit-text-size-adjust: 100%;
@@ -183,6 +178,15 @@ template {
 
 [hidden] {
   display: none;
+}
+
+@keyframes textclip {
+  to {
+    background-position: 200% center;
+  }
+}
+* {
+  box-sizing: border-box;
 }
 
 html {
@@ -445,14 +449,12 @@ body:after {
   }
 }
 
-.newsList {
-  position: relative;
-  display: grid;
-  gap: 2em;
-}
 .newsList__news {
   display: grid;
   cursor: pointer;
+  padding: 0.7em;
+  border: 1px solid;
+  border-radius: 1em;
   grid-template: "image title title" "image date date" "excerpt excerpt excerpt" ". categories ."/1fr 1fr 1fr;
 }
 .newsList__news__image {
@@ -467,6 +469,7 @@ body:after {
 .newsList__news__date_published {
   grid-area: date;
   margin: 0.5em 0 0 0;
+  font-size: 0.8em;
 }
 .newsList__news__excerpt {
   grid-area: excerpt;
@@ -474,6 +477,13 @@ body:after {
 }
 .newsList__news__categories {
   grid-area: categories;
+}
+
+.newsList {
+  position: relative;
+  display: grid;
+  gap: 1em;
+  padding-top: 2em;
 }
 
 .pagination {

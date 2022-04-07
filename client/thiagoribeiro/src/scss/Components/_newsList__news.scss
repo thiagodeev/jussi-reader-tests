@@ -1,0 +1,42 @@
+.newsList__news{
+  display: grid;
+  cursor: pointer;
+  padding: 0.7em;
+  border: 1px solid;
+  border-radius: 1em;
+
+  grid-template:
+    "image title title"
+    "image date date"
+    "excerpt excerpt excerpt"
+    ". categories ."/ 1fr 1fr 1fr;
+
+  &__image{
+    height: 5em;
+    grid-area: image;
+  }
+  
+  &__title{
+    grid-area: title;
+
+    font-size: 1.2em;
+    margin: 0;
+  }
+
+  &__date_published{
+    grid-area: date;
+
+    margin: 0.5em 0 0 0;
+    font-size: 0.8em;
+  }
+
+  &__excerpt{
+    grid-area: excerpt;
+
+    margin: 0.5em 0;
+  }
+
+  &__categories{
+    grid-area: categories;
+  }
+}
