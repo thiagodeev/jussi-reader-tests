@@ -5,7 +5,7 @@ function dataEvent(element){
   document.getElementById("orderByTitle").removeAttribute('class');
 
   if(!element.currentTarget.classList.contains("active")){
-    element.currentTarget.FUNCTIONrender(element.currentTarget.elementToRender);
+    renderNews(element.currentTarget.elementToRender);
     
     element.currentTarget.classList.add("active");
   };
@@ -15,19 +15,17 @@ function titleEvent(element){
   document.getElementById("orderByDate").removeAttribute('class');
 
   if(!element.currentTarget.classList.contains("active")){
-    element.currentTarget.FUNCTIONrender(element.currentTarget.elementToRender);
+    renderNews(element.currentTarget.elementToRender);
     
     element.currentTarget.classList.add("active");
   };
 }
 
-// function addEvent(){console.log("hi")}
-
 //********** title **********//
 function orderByTitle(newsList){
   let ordenedList = Array.from(newsList).sort((a, b) => {
-    let x = a.title.toUpperCase();
-    let y = b.title.toUpperCase();
+    let x = a.getElementsByClassName("newsList__news__title")[0].innerText.toUpperCase();
+    let y = b.getElementsByClassName("newsList__news__title")[0].innerText.toUpperCase();
 
     return x < y ? -1 : 1;
   });
@@ -35,13 +33,11 @@ function orderByTitle(newsList){
   return ordenedList;
 };
 
-function renderHTMLListOrderedByTitle(elementToRender, FUNCTIONrender){
-
+function renderHTMLListOrderedByTitle(elementToRender){
   let orderByTitleElement = document.getElementById("orderByTitle");
   orderByTitleElement.removeAttribute('class');
 
   orderByTitleElement.elementToRender = elementToRender;
-  orderByTitleElement.FUNCTIONrender = FUNCTIONrender;
 
   if(isTheDataEventAddedForTheFirstTime){
     orderByTitleElement.removeEventListener('click', titleEvent, true);
@@ -55,8 +51,8 @@ function renderHTMLListOrderedByTitle(elementToRender, FUNCTIONrender){
 //********** date **********//
 function orderByDate(newsList){
   let ordenedList = Array.from(newsList).sort((a, b) => {
-    let x = a.date_published.toUpperCase();
-    let y = b.date_published.toUpperCase();
+    let x = a.getElementsByClassName("newsList__news__date_published")[0].innerText
+    let y = b.getElementsByClassName("newsList__news__date_published")[0].innerText
 
     return x > y ? -1 : 1;
   });
@@ -64,12 +60,11 @@ function orderByDate(newsList){
   return ordenedList;
 };
 
-function renderHTMLListOrderedByDate(elementToRender, FUNCTIONrender){
+function renderHTMLListOrderedByDate(elementToRender){
   let orderByDateElement = document.getElementById("orderByDate");
   orderByDateElement.removeAttribute('class');
 
   orderByDateElement.elementToRender = elementToRender;
-  orderByDateElement.FUNCTIONrender = FUNCTIONrender;
 
   if(isTheDataEventAddedForTheFirstTime){
     orderByDateElement.removeEventListener('click', dataEvent, true);
@@ -80,13 +75,10 @@ function renderHTMLListOrderedByDate(elementToRender, FUNCTIONrender){
 };
 
 //********** title and date **********//
-function addOrderBy(elementToRender, FUNCTIONformatNewsElement, FUNCTIONrender){
-  let newsOrganizedByTitle = orderByTitle(elementToRender);
-  let HTMLnewsOrganizedByTitle = FUNCTIONformatNewsElement(newsOrganizedByTitle);
+function addOrderBy(elementToRender){
+  let HTMLnewsOrganizedByTitle = orderByTitle(elementToRender);
+  let HTMLnewsOrganizedByDate = orderByDate(elementToRender);
 
-  let newsOrganizedByDate = orderByDate(elementToRender);
-  let HTMLnewsOrganizedByDate = FUNCTIONformatNewsElement(newsOrganizedByDate);
-
-  renderHTMLListOrderedByTitle(HTMLnewsOrganizedByTitle, FUNCTIONrender);
-  renderHTMLListOrderedByDate(HTMLnewsOrganizedByDate, FUNCTIONrender);
+  renderHTMLListOrderedByTitle(HTMLnewsOrganizedByTitle);
+  renderHTMLListOrderedByDate(HTMLnewsOrganizedByDate);
 }
