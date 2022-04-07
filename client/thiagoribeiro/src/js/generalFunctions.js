@@ -2,6 +2,7 @@ function titleLink(organizedNews){
   document.getElementById("title").onclick= function(){
     renderNews(organizedNews);
     addOrderBy(organizedNews);
+    addSearch(organizedNews);
     
     //remove Active class from categories
     let categoriesListElement = document.getElementById("categories-list");

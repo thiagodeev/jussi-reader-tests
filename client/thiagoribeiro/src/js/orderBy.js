@@ -39,7 +39,7 @@ function renderHTMLListOrderedByTitle(elementToRender){
 
   orderByTitleElement.elementToRender = elementToRender;
 
-  if(isTheDataEventAddedForTheFirstTime){
+  if(isTheTitleEventAddedForTheFirstTime){
     orderByTitleElement.removeEventListener('click', titleEvent, true);
   }
 
