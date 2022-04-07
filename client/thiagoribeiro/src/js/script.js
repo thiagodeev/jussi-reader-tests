@@ -14,6 +14,7 @@
   };
   renderNews(allNewsInHTMLFormat);
   addOrderBy(allNewsInHTMLFormat);
+  addSearch(allNewsInHTMLFormat)
 
   console.log(allNewsInHTMLFormat)
 
@@ -23,7 +24,6 @@
   // let teste = createsHTMLNewsFrom(allAPINews);
   // console.log(teste)
   // search(teste);
-
   // //add click to title
   titleLink(allNewsInHTMLFormat);
 })();

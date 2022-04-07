@@ -53,6 +53,7 @@ function renderCategorieList(categoriesObject){
         //write the page on HTML
         renderNews(value);
         addOrderBy(value);
+        addSearch(value)
 
         //adds the Active class to current clicked element
         element.currentTarget.classList.add("active");
