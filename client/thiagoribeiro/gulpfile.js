@@ -19,6 +19,11 @@ function compileJS(){
     return gulp
     .src([
         "src/js/api.js",
+        "src/js/script.js",
+        "src/js/generalFunctions.js",
+        "src/js/pagination.js",
+        "src/js/categories.js",
+        "src/js/orderBy.js",
         "src/js/search.js"
     ])
     .pipe(concat("main.js"))
@@ -27,4 +32,5 @@ function compileJS(){
 
 function watch(){
     gulp.watch("src/scss/**/*.scss", compileSass);
+    gulp.watch("src/js/**/*.js", compileJS);
 }
