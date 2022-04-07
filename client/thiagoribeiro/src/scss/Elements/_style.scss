@@ -2,11 +2,6 @@
 @use "../Settings" as *;
 @use "../Tools" as *;
 
-
- *{
-  box-sizing: border-box;
- }
-
 html {
   font-size: 16px; //in case that browser doesn't support "rem"
 
@@ -49,6 +44,9 @@ body {
   @include font($main-font, 400);
   color: $primary-text-color;
   padding: 0.5em 1em;
+
+  //fix bug
+  overflow-x: hidden;
 
   @include breakpoint(mobile, min){
     @include breakpoint(tablet, max){
