@@ -16,7 +16,7 @@
       "image title title"
       "image date date"
       "excerpt excerpt excerpt"
-      ". categories ."/ 1fr 1fr 1fr;
+      ". categories categories"/ 1fr 1fr 1fr;
 
   @include breakpoint(mobile, min){
     @include breakpoint(tablet, max){
@@ -58,8 +58,6 @@
       width: 8em;
       align-self: center;
       justify-self: center;
-      // @include breakpoint(large, max){
-      // };
     };
   }
   
@@ -85,5 +83,12 @@
 
   &__categories{
     grid-area: categories;
+    display: flex;
+    justify-content: space-around;
+
+    > span {
+      color: $secondary-text-color;
+      margin-right: 1em;
+    }
   }
 }

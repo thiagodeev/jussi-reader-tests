@@ -278,6 +278,10 @@ body:before {
   filter: blur(2px);
   -webkit-filter: blur(2px);
 }
+body a.active, body li.active {
+  color: #32ff00;
+  font-size: 1.2em;
+}
 
 .header__categories ul {
   list-style: none;
@@ -480,7 +484,7 @@ body:before {
   backdrop-filter: blur(20px);
   background-color: rgba(255, 255, 255, 0.1);
   column-gap: 1em;
-  grid-template: "image title title" "image date date" "excerpt excerpt excerpt" ". categories ."/1fr 1fr 1fr;
+  grid-template: "image title title" "image date date" "excerpt excerpt excerpt" ". categories categories"/1fr 1fr 1fr;
 }
 @media (min-width: 380px) and (max-width: 739px) {
   .newsList__news {
@@ -530,6 +534,12 @@ body:before {
 }
 .newsList__news__categories {
   grid-area: categories;
+  display: flex;
+  justify-content: space-around;
+}
+.newsList__news__categories > span {
+  color: #60eca6;
+  margin-right: 1em;
 }
 
 .newsList {
