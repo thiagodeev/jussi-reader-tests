@@ -16,6 +16,7 @@
       //adds the click event
       paginationItem.addEventListener("click", element => {
         if(!element.currentTarget.classList.contains("active")){
+          window.scrollTo({ top: 0, behavior: 'smooth' });
           //removes the class Active from all pagination items 
           for (let i=0; i < paginationElement.children.length; i++){
             paginationElement.children[i].removeAttribute('class');

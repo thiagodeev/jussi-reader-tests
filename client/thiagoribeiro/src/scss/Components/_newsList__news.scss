@@ -1,19 +1,66 @@
+@use "../Settings" as *;
+@use "../Tools" as *;
+
 .newsList__news{
   display: grid;
   cursor: pointer;
   padding: 0.7em;
-  border: 1px solid;
   border-radius: 1em;
+  box-shadow: 0px 0px 5px 3px rgb(0 0 0 / 20%);
+  backdrop-filter: blur(20px);
+  background-color: rgb(255 255 255 / 10%);
+  column-gap: 1em;
+
 
   grid-template:
-    "image title title"
-    "image date date"
-    "excerpt excerpt excerpt"
-    ". categories ."/ 1fr 1fr 1fr;
+      "image title title"
+      "image date date"
+      "excerpt excerpt excerpt"
+      ". categories ."/ 1fr 1fr 1fr;
+
+  @include breakpoint(mobile, min){
+    @include breakpoint(tablet, max){
+      grid-template:
+      "image title title title"
+      "image date date date"
+      "image excerpt excerpt excerpt"
+      "image categories categories ."/ 1fr 1fr 1fr 1fr;
+    };
+  };
+
+  @include breakpoint(large, min){
+    @include breakpoint(x-large, max){
+      grid-template:
+      "image title title title"
+      "image date date date"
+      "image excerpt excerpt excerpt"
+      "image categories categories ."/ 1fr 1fr 1fr 1fr;
+    }
+  };
 
   &__image{
+    object-fit: cover;
     height: 5em;
+    width: 5em;
     grid-area: image;
+
+    @include breakpoint(mobile, min){
+      @include breakpoint(tablet, max){
+        height: 6em;
+        width: 7em;
+        align-self: center;
+        justify-self: center;
+      };
+    };
+
+    @include breakpoint(tablet, min){
+      height: 8em;
+      width: 8em;
+      align-self: center;
+      justify-self: center;
+      // @include breakpoint(large, max){
+      // };
+    };
   }
   
   &__title{

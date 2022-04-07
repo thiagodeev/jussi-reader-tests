@@ -186,6 +186,8 @@ template {
   }
 }
 html {
+  height: 100%;
+  min-height: 100%;
   font-size: 16px;
 }
 @media (max-width: 379px) {
@@ -220,25 +222,31 @@ html {
 }
 
 body {
+  display: flex;
+  flex-direction: column;
+  min-height: 98%;
   font-family: "Poppins", sans-serif;
   font-weight: 400;
   color: #FFF;
   padding: 0.5em 1em;
-  overflow-x: hidden;
+  padding-bottom: 0;
 }
 @media (min-width: 380px) and (max-width: 739px) {
   body {
     padding: 1em 2em;
+    padding-bottom: 0;
   }
 }
 @media (min-width: 740px) and (max-width: 959px) {
   body {
     padding: 1em 3em;
+    padding-bottom: 0;
   }
 }
 @media (min-width: 960px) {
   body {
     padding: 1em 10vw;
+    padding-bottom: 0;
   }
 }
 body:after {
@@ -246,12 +254,29 @@ body:after {
   display: block;
   background-attachment: fixed;
   position: fixed;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background: radial-gradient(circle at center, #000000 -50%, #141414 100%);
+  top: -5px;
+  left: -5px;
+  height: 103%;
+  width: 103%;
+  background-color: #000;
+  opacity: 0.1;
   z-index: -1;
+}
+body:before {
+  content: "";
+  display: block;
+  background-attachment: fixed;
+  position: fixed;
+  top: -5px;
+  left: -5px;
+  height: 103%;
+  width: 103%;
+  /* background: radial-gradient(circle at center, #000000 -50%, #141414 100%); */
+  background: url(assets/background.jpg) no-repeat center left;
+  background-size: cover;
+  z-index: -2;
+  filter: blur(2px);
+  -webkit-filter: blur(2px);
 }
 
 .header__categories ul {
@@ -450,13 +475,44 @@ body:after {
   display: grid;
   cursor: pointer;
   padding: 0.7em;
-  border: 1px solid;
   border-radius: 1em;
+  box-shadow: 0px 0px 5px 3px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(20px);
+  background-color: rgba(255, 255, 255, 0.1);
+  column-gap: 1em;
   grid-template: "image title title" "image date date" "excerpt excerpt excerpt" ". categories ."/1fr 1fr 1fr;
 }
+@media (min-width: 380px) and (max-width: 739px) {
+  .newsList__news {
+    grid-template: "image title title title" "image date date date" "image excerpt excerpt excerpt" "image categories categories ."/1fr 1fr 1fr 1fr;
+  }
+}
+@media (min-width: 1200px) and (max-width: 1599px) {
+  .newsList__news {
+    grid-template: "image title title title" "image date date date" "image excerpt excerpt excerpt" "image categories categories ."/1fr 1fr 1fr 1fr;
+  }
+}
 .newsList__news__image {
+  object-fit: cover;
   height: 5em;
+  width: 5em;
   grid-area: image;
+}
+@media (min-width: 380px) and (max-width: 739px) {
+  .newsList__news__image {
+    height: 6em;
+    width: 7em;
+    align-self: center;
+    justify-self: center;
+  }
+}
+@media (min-width: 740px) {
+  .newsList__news__image {
+    height: 8em;
+    width: 8em;
+    align-self: center;
+    justify-self: center;
+  }
 }
 .newsList__news__title {
   grid-area: title;
@@ -482,19 +538,31 @@ body:after {
   gap: 1em;
   padding-top: 2em;
 }
+@media (min-width: 740px) {
+  .newsList {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+@media (min-width: 1600px) {
+  .newsList {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
 
-.pagination {
-  position: absolute;
-  width: 100vw;
-  max-width: 100%;
-  left: 0;
+footer {
+  margin-top: auto;
   padding-top: 4em;
   padding-bottom: 2em;
+}
+footer .pagination {
+  position: relative;
+  width: 100vw;
+  max-width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: center;
 }
-.pagination > div {
+footer .pagination > div {
   font-size: 1.3em;
   font-weight: 600;
   width: 2em;
@@ -506,12 +574,12 @@ body:after {
   text-shadow: 1px 1px 2px black;
   cursor: pointer;
 }
-.pagination > div:first-child {
+footer .pagination > div:first-child {
   border-radius: 10px 0px 0px 10px;
 }
-.pagination > div:last-child {
+footer .pagination > div:last-child {
   border-radius: 0px 10px 10px 0px;
 }
-.pagination > div.active {
+footer .pagination > div.active {
   background-color: #60eca6;
 }
