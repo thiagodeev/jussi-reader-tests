@@ -1,6 +1,11 @@
 @use "../Settings" as *;
 @use "../Tools" as *;
 
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
 .newsList__news{
   display: grid;
   cursor: pointer;
@@ -10,6 +15,8 @@
   backdrop-filter: blur(20px);
   background-color: rgb(255 255 255 / 10%);
   column-gap: 1em;
+  transition: transform 0.1s linear;
+  animation: fadeIn 0.3s linear;
 
 
   grid-template:
@@ -18,6 +25,12 @@
       "excerpt excerpt excerpt"
       ". categories categories"/ 1fr 1fr 1fr;
 
+
+  &:hover{
+    -webkit-transform: scale(1.02);
+    -ms-transform: scale(1.02);
+    transform: scale(1.02);
+  }
   @include breakpoint(mobile, min){
     @include breakpoint(tablet, max){
       grid-template:

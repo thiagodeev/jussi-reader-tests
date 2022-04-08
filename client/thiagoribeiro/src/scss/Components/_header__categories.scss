@@ -1,7 +1,26 @@
 @use "../foward" as *;
 
+#show-all-categories{
+  display: inline;
+  width: 7em;
+  border-radius: 1em;
+  white-space: nowrap;
+}
+
+#categories-wrapper{
+  background: $background-color;
+
+  ul{
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
+
 .header__categories{
-  
+
   ul{
     list-style: none;
     padding: 0;

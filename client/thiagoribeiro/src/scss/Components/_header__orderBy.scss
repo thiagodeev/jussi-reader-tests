@@ -1,4 +1,8 @@
 @use "../foward" as *;
+.orderby-wrapper{
+  display: flex;
+  flex-wrap: nowrap;
+}
 
 .header__orderBy{
 
@@ -33,9 +37,10 @@
   align-items: center;
   justify-content: space-between;
   height: 2em;
+  margin-top: 0.5em;
 
   p{
-    margin-right: 30px;
+    margin-right: 10px;
   }
 
   nav a:first-child{
