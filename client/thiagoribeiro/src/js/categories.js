@@ -76,8 +76,18 @@ function renderCategorieList(categoriesObject){
 
 function seeAllCategories(){
   let toggleButton = document.getElementById("show-all-categories");
+  let categoriesWrapper =document.getElementById("categories-wrapper");
 
   toggleButton.addEventListener("click", element => {
-    document.getElementById("categories-wrapper").classList.toggle("show-list");
+    categoriesWrapper.classList.toggle("show-list");
+
+    
+    if(categoriesWrapper.classList.contains("show-list")){
+      element.target.innerText = "Ocultar";
+      console.log("oi")
+    } else {
+      element.target.innerText = "Ver mais";
+      console.log("oilkl")
+    }
   })
 }
