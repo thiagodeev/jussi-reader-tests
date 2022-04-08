@@ -9,8 +9,12 @@
 
 #categories-wrapper{
   background: $background-color;
+  display: none;
 
-  ul{
+  &.show-list{
+    display: block;
+  }
+  ul#categories-list-2{
     list-style: none;
     padding: 0;
     display: flex;

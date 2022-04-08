@@ -292,8 +292,12 @@ body a.active, body li.active {
 
 #categories-wrapper {
   background: linear-gradient(0deg, black 0%, #181818 100%);
+  display: none;
 }
-#categories-wrapper ul {
+#categories-wrapper.show-list {
+  display: block;
+}
+#categories-wrapper ul#categories-list-2 {
   list-style: none;
   padding: 0;
   display: flex;

@@ -73,3 +73,11 @@ function renderCategorieList(categoriesObject){
     }
   });
 };
+
+function seeAllCategories(){
+  let toggleButton = document.getElementById("show-all-categories");
+
+  toggleButton.addEventListener("click", element => {
+    document.getElementById("categories-wrapper").classList.toggle("show-list");
+  })
+}
