@@ -28,9 +28,12 @@ function createsCategoriesObject(listOfNews){
 
 function renderCategorieList(categoriesObject){
   let categoriesListElement = document.getElementById("categories-list");
-  let HTMLCategoriesList = {};
-  
+  let categoriesListElement_2 = document.getElementById("categories-list-2");
+  let listCounter = 0;
+
   Object.entries(categoriesObject).forEach(([key, value]) => {
+    listCounter++;
+
     //create <a> tag
     let categorieItemAnchor = document.createElement("a");
     categorieItemAnchor.setAttribute("href", "#");
@@ -49,6 +52,9 @@ function renderCategorieList(categoriesObject){
         for (let i=0; i < categoriesListElement.children.length; i++){
           categoriesListElement.children[i].classList.remove('active');
         }
+        for (let i=0; i < categoriesListElement_2.children.length; i++){
+          categoriesListElement_2.children[i].classList.remove('active');
+        }
         
         //write the page on HTML
         renderNews(value);
@@ -60,6 +66,10 @@ function renderCategorieList(categoriesObject){
       }
     });
 
-    categoriesListElement.appendChild(categorieItem);
+    if(listCounter <= 3){
+      categoriesListElement.appendChild(categorieItem);
+    } else {
+      categoriesListElement_2.appendChild(categorieItem);
+    }
   });
 };
