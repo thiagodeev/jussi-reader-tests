@@ -36,14 +36,30 @@ function divideTheArray(arrayToDivide){
   return organizedNewsList;
 };
 
-function returnAListOfCategories(listOfCategories, objectKey, HTMLElement){
-  let result = [];
-  
+function returnAListOfCategories(listOfCategories){
+  let divCategoriesList = document.createElement("div");
+  divCategoriesList.classList.add("newsList__news__categories");
+
+  let headerCategorieList = document.getElementById("categories-list");
+  let categorieElement;
+
   for (let categorie of listOfCategories){
-    result.push(`<${HTMLElement}>${categorie[objectKey]}</${HTMLElement}>`);
+    categorieElement = document.createElement("span");
+    categorieElement.innerText = categorie.name;
+
+    categorieElement.addEventListener("click", element => {
+      for (let headerCategorie of headerCategorieList.children){
+        if(headerCategorie.innerText == categorie.name){
+          headerCategorie.click();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
+      };
+    });
+
+    divCategoriesList.appendChild(categorieElement);
   }
 
-  return result.join("");
+  return divCategoriesList;
 };
 
 function newsTemplate(newsList){
@@ -58,13 +74,14 @@ function newsTemplate(newsList){
     minute: 'numeric',
     second: 'numeric'
   };
-
   let excerpt = (function truncateString(str, num) {
     if (str.length <= num) {
       return str
     }
     return str.slice(0, num) + '...'
   })(newsList.excerpt, 75);
+
+  let divCategoriesList = returnAListOfCategories(newsList.categories);
 
   element = document.createElement("div");
   element.classList.add("newsList__news");
@@ -73,11 +90,13 @@ function newsTemplate(newsList){
     <h2 class="newsList__news__title">${newsList.title}</h2>
     <p class="newsList__news__date_published">${date.toLocaleDateString("pt-BR", options)}</p>
     <p class="newsList__news__excerpt">${excerpt}</p>
-    <div class="newsList__news__categories">${returnAListOfCategories(newsList.categories, "name", "span")}</div>
   `;
+  element.appendChild(divCategoriesList);
 
   element.addEventListener("click", element => {
-    window.location.href = newsList.url;
+    if(element.target.localName != "span"){
+      window.location.href = newsList.url;
+    }
   });
 
   return element;
