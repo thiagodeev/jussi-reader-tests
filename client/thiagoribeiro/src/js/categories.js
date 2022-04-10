@@ -84,10 +84,8 @@ function seeAllCategories(){
     
     if(categoriesWrapper.classList.contains("show-list")){
       element.target.innerText = "Ocultar";
-      console.log("oi")
     } else {
       element.target.innerText = "Ver mais";
-      console.log("oilkl")
     }
   })
 }
