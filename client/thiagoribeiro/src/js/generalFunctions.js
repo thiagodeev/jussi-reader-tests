@@ -41,6 +41,7 @@ function returnAListOfCategories(listOfCategories){
   divCategoriesList.classList.add("newsList__news__categories");
 
   let headerCategorieList = document.getElementById("categories-list");
+  let headerCategorieList_2 = document.getElementById("categories-list-2");
   let categorieElement;
 
   for (let categorie of listOfCategories){
@@ -48,11 +49,20 @@ function returnAListOfCategories(listOfCategories){
     categorieElement.innerText = categorie.name;
 
     categorieElement.addEventListener("click", element => {
+      //pass through both clategories lists
       for (let headerCategorie of headerCategorieList.children){
         if(headerCategorie.innerText == categorie.name){
           headerCategorie.click();
           window.scrollTo({ top: 0, behavior: 'smooth' });
+        } else {
+        for (let headerCategorie of headerCategorieList_2.children){
+          if(headerCategorie.innerText == categorie.name){
+            headerCategorie.click();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          };
         };
+        }
+
       };
     });
 

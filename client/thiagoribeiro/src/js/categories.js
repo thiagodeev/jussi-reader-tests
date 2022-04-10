@@ -81,7 +81,6 @@ function seeAllCategories(){
   toggleButton.addEventListener("click", element => {
     categoriesWrapper.classList.toggle("show-list");
 
-    
     if(categoriesWrapper.classList.contains("show-list")){
       element.target.innerText = "Ocultar";
     } else {
