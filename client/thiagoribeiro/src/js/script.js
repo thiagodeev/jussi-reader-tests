@@ -10,16 +10,21 @@
     renderNewsOnHTML(organizedNews);
     writePagination(organizedNews);
   };
-  renderNews(allNewsInHTMLFormat);
-  addOrderBy(allNewsInHTMLFormat);
-  addSearch(allNewsInHTMLFormat)
 
-  //********** categories **********//
-  renderCategorieList(createsCategoriesObject(allNewsInHTMLFormat));
-  seeAllCategories()
+  renderAll = function (allNewsInHTMLFormat){
+    renderNews(allNewsInHTMLFormat);
+    addOrderBy(allNewsInHTMLFormat);
+    addSearch(allNewsInHTMLFormat)
+  
+    //categories
+    renderCategorieList(createsCategoriesObject(allNewsInHTMLFormat));
+    seeAllCategories()
+  
+    //add click to title
+    titleLink(allNewsInHTMLFormat);
+  }
 
-  // //add click to title
-  titleLink(allNewsInHTMLFormat);
+  renderAll(allNewsInHTMLFormat);
 })();
 
 
