@@ -1,4 +1,5 @@
 function createsCategoriesObject(listOfNews){
+
   let categoriesObject = {
     "Sem Categoria": []
   };
@@ -30,6 +31,10 @@ function renderCategorieList(categoriesObject){
   let categoriesListElement = document.getElementById("categories-list");
   let categoriesListElement_2 = document.getElementById("categories-list-2");
   let listCounter = 0;
+
+  //delete all existing categories items
+  deleteChildElements(categoriesListElement);
+  deleteChildElements(categoriesListElement_2);
 
   Object.entries(categoriesObject).forEach(([key, value]) => {
     listCounter++;
@@ -74,17 +79,33 @@ function renderCategorieList(categoriesObject){
   });
 };
 
+//////////// see all categories //////////////
+isTheSeeAllCategoriesEventAddedForTheFirstTime = false;
+
 function seeAllCategories(){
   let toggleButton = document.getElementById("show-all-categories");
   let categoriesWrapper =document.getElementById("categories-wrapper");
+  //reset when called again
+  toggleButton.innerText = "Ver mais";
+  categoriesWrapper.classList.remove("show-list");
 
-  toggleButton.addEventListener("click", element => {
-    categoriesWrapper.classList.toggle("show-list");
+  //checks if the event has not been added yet
+  if (!isTheSeeAllCategoriesEventAddedForTheFirstTime){
+    //trick to access this value inside event function
+    toggleButton.categoriesWrapper = categoriesWrapper;
 
-    if(categoriesWrapper.classList.contains("show-list")){
-      element.target.innerText = "Ocultar";
-    } else {
-      element.target.innerText = "Ver mais";
-    }
-  })
-}
+    toggleButton.addEventListener("click", seeAllCategoriesEvent);
+
+    isTheSeeAllCategoriesEventAddedForTheFirstTime = true;
+  }
+};
+
+function seeAllCategoriesEvent(toggleButton){
+  toggleButton.target.categoriesWrapper.classList.toggle("show-list");
+
+  if(toggleButton.target.categoriesWrapper.classList.contains("show-list")){
+    toggleButton.target.innerText = "Ocultar";
+  } else {
+    toggleButton.target.innerText = "Ver mais";
+  }
+};

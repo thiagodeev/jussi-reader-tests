@@ -36,5 +36,5 @@ function addNewAPI(){
     newsURLs.push(APILink);
     console.log(newsURLs);
     main();
-  });
+  }, {once : true});
 }

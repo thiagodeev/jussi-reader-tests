@@ -1,4 +1,4 @@
-;(async function main (){
+async function main (){
   numberOfNewsPerPage = 6;
 
   const newsFromAPI = await fetchAPI(newsURLs);
@@ -14,23 +14,19 @@
   renderAll = function (allNewsInHTMLFormat){
     renderNews(allNewsInHTMLFormat);
     addOrderBy(allNewsInHTMLFormat);
-    addSearch(allNewsInHTMLFormat)
+    addSearch(allNewsInHTMLFormat);
   
     //categories
     renderCategorieList(createsCategoriesObject(allNewsInHTMLFormat));
-    seeAllCategories()
-  
-
+    seeAllCategories();
   };
-
   renderAll(allNewsInHTMLFormat);
-  //add click to title
+
+  //add title click event 
   titleLink(allNewsInHTMLFormat);
-
-
-})();
-
-// addNewAPI();
+  addNewAPI();
+};
+main();
 
 // window.addEventListener('load', (event) => {
 //   addNewAPI()
