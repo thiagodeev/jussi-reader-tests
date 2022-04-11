@@ -1,4 +1,4 @@
-const newsURLs = [
+newsURLs = [
   "https://jussi-reader.netlify.app/.netlify/functions/news-one",
   "https://jussi-reader.netlify.app/.netlify/functions/news-two",
 ];

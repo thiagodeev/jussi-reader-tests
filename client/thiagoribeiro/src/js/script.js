@@ -3,7 +3,7 @@
 
   const newsFromAPI = await fetchAPI(newsURLs);
   const allAPINews = getAllNewsOf(newsFromAPI);
-  const allNewsInHTMLFormat = createsHTMLNewsFrom(allAPINews);
+  allNewsInHTMLFormat = createsHTMLNewsFrom(allAPINews);
 
   renderNews = function (arrayToRender){
     const organizedNews = divideTheArray(arrayToRender, numberOfNewsPerPage);
@@ -20,11 +20,30 @@
     renderCategorieList(createsCategoriesObject(allNewsInHTMLFormat));
     seeAllCategories()
   
-    //add click to title
-    titleLink(allNewsInHTMLFormat);
-  }
+
+  };
 
   renderAll(allNewsInHTMLFormat);
+
 })();
 
+// addNewAPI();
 
+window.addEventListener('load', (event) => {
+  addNewAPI()
+  console.log("load");
+});
+// //add click to title
+// titleLink(allNewsInHTMLFormat);
+
+// document.addEventListener('readystatechange', (event) => {
+//   for( let i = 0; i < 2000000000; i++)
+// {}
+// console.log("readystate" + document.readyState);
+// });
+
+// document.addEventListener('DOMContentLoaded', (event) => {
+//   for( let i = 0; i < 2000000000; i++)
+// {}
+// console.log("DOMContentLoaded");
+// });
