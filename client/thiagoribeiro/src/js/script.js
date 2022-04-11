@@ -24,17 +24,18 @@
   };
 
   renderAll(allNewsInHTMLFormat);
+  //add click to title
+  titleLink(allNewsInHTMLFormat);
+
 
 })();
 
 // addNewAPI();
 
-window.addEventListener('load', (event) => {
-  addNewAPI()
-  console.log("load");
-});
-// //add click to title
-// titleLink(allNewsInHTMLFormat);
+// window.addEventListener('load', (event) => {
+//   addNewAPI()
+//   console.log("load");
+// });
 
 // document.addEventListener('readystatechange', (event) => {
 //   for( let i = 0; i < 2000000000; i++)
