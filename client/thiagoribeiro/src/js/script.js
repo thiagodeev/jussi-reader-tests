@@ -25,6 +25,8 @@ async function main (){
   //add title click event 
   titleLink(allNewsInHTMLFormat);
   addNewAPI();
+  //scroll to top
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 };
 main();
 
