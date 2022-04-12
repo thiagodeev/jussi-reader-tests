@@ -1,7 +1,7 @@
 async function main (){
   numberOfNewsPerPage = 6;
 
-  const newsFromAPI = await fetchAPI(newsURLs);
+  newsFromAPI = await getAPINews();
   const allAPINews = getAllNewsOf(newsFromAPI);
   allNewsInHTMLFormat = createsHTMLNewsFrom(allAPINews);
 
@@ -11,24 +11,31 @@ async function main (){
     writePagination(organizedNews);
   };
 
-  renderAll = function (allNewsInHTMLFormat){
-    renderNews(allNewsInHTMLFormat);
-    addOrderBy(allNewsInHTMLFormat);
-    addSearch(allNewsInHTMLFormat);
-  
-    //categories
-    renderCategorieList(createsCategoriesObject(allNewsInHTMLFormat));
-    seeAllCategories();
-  };
-  renderAll(allNewsInHTMLFormat);
+  renderNews(allNewsInHTMLFormat);
+  addOrderBy(allNewsInHTMLFormat);
+  addSearch(allNewsInHTMLFormat);
+  favorites(allNewsInHTMLFormat);
 
+  //categories
+  renderCategorieList(createsCategoriesObject(allNewsInHTMLFormat));
+  seeAllCategories();
+  
   //add title click event 
   titleLink(allNewsInHTMLFormat);
+  //add functionality to input API
   addNewAPI();
   //scroll to top
   window.scrollTo({ top: 0, behavior: 'smooth' });
+
+
+  //save the news offline
+  localStorage.setItem('newsFromAPI', JSON.stringify(newsFromAPI));
 };
-main();
+
+//just executes when DOM is loaded
+document.addEventListener("DOMContentLoaded", function(event) {
+  main();
+});
 
 // window.addEventListener('load', (event) => {
 //   addNewAPI()
