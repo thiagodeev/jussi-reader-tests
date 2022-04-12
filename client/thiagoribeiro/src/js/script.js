@@ -5,6 +5,8 @@ async function main (){
   const allAPINews = getAllNewsOf(newsFromAPI);
   allNewsInHTMLFormat = createsHTMLNewsFrom(allAPINews);
 
+  console.log(allNewsInHTMLFormat)
+
   renderNews = function (arrayToRender){
     const organizedNews = divideTheArray(arrayToRender, numberOfNewsPerPage);
     renderNewsOnHTML(organizedNews);
@@ -36,6 +38,10 @@ async function main (){
 document.addEventListener("DOMContentLoaded", function(event) {
   main();
 });
+
+
+
+
 
 // window.addEventListener('load', (event) => {
 //   addNewAPI()

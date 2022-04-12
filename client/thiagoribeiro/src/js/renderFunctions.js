@@ -46,7 +46,7 @@ function makeFavoriteElement(){
     };
 
 
-    console.log(allNewsInHTMLFormat);
+    console.log(element.currentTarget);
     //save the news offline
     // localStorage.setItem('newsFromAPI', JSON.stringify(newsFromAPI));
   });

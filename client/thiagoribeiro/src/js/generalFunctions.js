@@ -18,23 +18,24 @@ function titleLink(organizedNews){
     }
     for (let i=0; i < categoriesListElement_2.children.length; i++){
       categoriesListElement_2.children[i].classList.remove('active');
-    }
-  }
-}
+    };
+  };
+};
 
 function addNewAPI(){
   let input = document.getElementById("input-api-link");
   let button = document.getElementById("submit-api-button");
   let APILink = "";
   
-  button.addEventListener("click", element => {
+  button.addEventListener("click", async element => {
     element.preventDefault();
     
-
     APILink = input.value;
-    console.log(input.value);
     newsURLs.push(APILink);
-    console.log(newsURLs);
+    
+    const newsFromAPI = await fetchAPI(newsURLs);
+    //update the offline news list
+    localStorage.setItem('newsFromAPI', JSON.stringify(newsFromAPI));
     main();
   }, {once : true});
-}
+};

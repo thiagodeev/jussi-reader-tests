@@ -3,6 +3,10 @@ async function getAPINews(){
 
   if(newsOffline === null){
     const newsFromAPI = await fetchAPI(newsURLs);
+
+    //save the news offline
+    localStorage.setItem('newsFromAPI', JSON.stringify(newsFromAPI));
+
     return newsFromAPI;
   } else {
     const newsFromAPI = newsOffline;
