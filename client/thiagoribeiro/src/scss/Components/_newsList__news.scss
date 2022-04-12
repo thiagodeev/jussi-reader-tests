@@ -51,6 +51,18 @@
     }
   };
 
+  &__favorite{
+    position: absolute;
+    height: 0.9em;
+    width: 1em;
+    padding: 0.8em;
+    left: 0.3em;
+    top: 0.3em;
+    background-color: rgb(255 255 255 / 40%);
+    border-radius: 100%;
+    text-align: center;
+  }
+
   &__image{
     object-fit: cover;
     height: 5em;

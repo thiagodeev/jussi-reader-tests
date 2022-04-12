@@ -542,6 +542,17 @@ body a.active, body li.active {
     grid-template: "image title title title" "image date date date" "image excerpt excerpt excerpt" "image categories categories ."/1fr 1fr 1fr 1fr;
   }
 }
+.newsList__news__favorite {
+  position: absolute;
+  height: 0.9em;
+  width: 1em;
+  padding: 0.8em;
+  left: 0.3em;
+  top: 0.3em;
+  background-color: rgba(255, 255, 255, 0.4);
+  border-radius: 100%;
+  text-align: center;
+}
 .newsList__news__image {
   object-fit: cover;
   height: 5em;
