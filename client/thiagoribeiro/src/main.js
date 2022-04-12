@@ -144,7 +144,7 @@ function renderNewsOnHTML(organizedNews, currentPage = 0){
   deleteChildElements(document.getElementById("newsList"));
 
   organizedNews[currentPage].forEach(news => {
-    document.getElementById("newsList").appendChild(news);
+    document.getElementById("newsList").append(news);
   });
 };
 
@@ -193,7 +193,7 @@ function deleteChildElements(element){
           element.currentTarget.classList.add("active");
         }
       });
-      paginationElement.appendChild(paginationItem);
+      paginationElement.append(paginationItem);
     }
     paginationElement.firstChild.classList.add("active")
   }
@@ -237,7 +237,7 @@ function renderCategorieList(categoriesObject){
     //create <li> tag and append the <a>
     let categorieItem = document.createElement("li");
     categorieItem.classList.add("flex-item");
-    categorieItem.appendChild(categorieItemAnchor);
+    categorieItem.append(categorieItemAnchor);
 
 
     categorieItem.addEventListener("click", element => {
@@ -259,7 +259,7 @@ function renderCategorieList(categoriesObject){
       }
     });
 
-    categoriesListElement.appendChild(categorieItem);
+    categoriesListElement.append(categorieItem);
   });
 };
 isTheDataEventAddedForTheFirstTime = false;

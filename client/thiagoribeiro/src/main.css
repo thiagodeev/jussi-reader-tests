@@ -528,9 +528,9 @@ body a.active, body li.active {
   grid-template: "image title title" "image date date" "excerpt excerpt excerpt" ". categories categories"/1fr 1fr 1fr;
 }
 .newsList__news:hover {
-  -webkit-transform: scale(1.02);
-  -ms-transform: scale(1.02);
-  transform: scale(1.02);
+  -webkit-transform: scale(1.024);
+  -ms-transform: scale(1.024);
+  transform: scale(1.024);
 }
 @media (min-width: 380px) and (max-width: 739px) {
   .newsList__news {

@@ -46,7 +46,7 @@ function renderCategorieList(categoriesObject){
     //create <li> tag and append the <a>
     let categorieItem = document.createElement("li");
     categorieItem.classList.add("flex-item");
-    categorieItem.appendChild(categorieItemAnchor);
+    categorieItem.append(categorieItemAnchor);
 
 
     categorieItem.addEventListener("click", element => {
@@ -72,9 +72,9 @@ function renderCategorieList(categoriesObject){
     });
 
     if(listCounter <= 3){
-      categoriesListElement.appendChild(categorieItem);
+      categoriesListElement.append(categorieItem);
     } else {
-      categoriesListElement_2.appendChild(categorieItem);
+      categoriesListElement_2.append(categorieItem);
     }
   });
 };

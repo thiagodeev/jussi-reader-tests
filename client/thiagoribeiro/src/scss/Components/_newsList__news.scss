@@ -27,9 +27,9 @@
 
 
   &:hover{
-    -webkit-transform: scale(1.02);
-    -ms-transform: scale(1.02);
-    transform: scale(1.02);
+    -webkit-transform: scale(1.024);
+    -ms-transform: scale(1.024);
+    transform: scale(1.024);
   }
   @include breakpoint(mobile, min){
     @include breakpoint(tablet, max){
