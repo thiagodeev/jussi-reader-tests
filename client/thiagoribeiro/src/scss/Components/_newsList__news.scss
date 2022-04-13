@@ -18,13 +18,11 @@
   transition: transform 0.1s linear;
   animation: fadeIn 0.3s linear;
 
-
   grid-template:
       "image title title"
       "image date date"
       "excerpt excerpt excerpt"
       ". categories categories"/ 1fr 1fr 1fr;
-
 
   &:hover{
     -webkit-transform: scale(1.024);

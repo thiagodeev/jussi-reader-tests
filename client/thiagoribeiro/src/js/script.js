@@ -5,7 +5,6 @@ async function main (){
   const allAPINewsInOneList = getAllNewsOf(newsFromAPI);
   allNewsInHTMLFormat = createsHTMLNewsFrom(allAPINewsInOneList);
 
-  console.log(allNewsInHTMLFormat)
   offlineFavoritesFeature(allNewsInHTMLFormat);
 
   renderNews = function (arrayToRender){
@@ -42,22 +41,23 @@ document.addEventListener("DOMContentLoaded", function(event) {
 });
 
 
-
+// for( let i = 0; i < 2000000000; i++)
+// {}
 
 
 // window.addEventListener('load', (event) => {
-//   addNewAPI()
+//   for( let i = 0; i < 2000000000; i++)
+// {}
 //   console.log("load");
 // });
 
 // document.addEventListener('readystatechange', (event) => {
+//   console.log("readystate" + document.readyState);
 //   for( let i = 0; i < 2000000000; i++)
 // {}
-// console.log("readystate" + document.readyState);
+//   console.log("readystate" + document.readyState);
 // });
 
 // document.addEventListener('DOMContentLoaded', (event) => {
-//   for( let i = 0; i < 2000000000; i++)
-// {}
-// console.log("DOMContentLoaded");
+//   console.log("DOMContentLoaded");
 // });

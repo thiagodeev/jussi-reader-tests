@@ -1,19 +1,22 @@
 function favorites(allNewsInHTMLFormat){
   let favoriteItem = document.getElementById("favorites");
-  let favoritesNewsList = [];
-  let favoriteNews;
 
   favoriteItem.addEventListener("click", element => {
-    favoritesNewsList = [];
+    let favoritesNewsList = [];
     allNewsInHTMLFormat.forEach(news => {
       if(news.children[0].classList.contains("favorite")){
         favoritesNewsList.push(news);
       }
     });
 
-    renderNews(favoritesNewsList);
-    addOrderBy(favoritesNewsList);
-    addSearch(favoritesNewsList);
+    if(favoritesNewsList.length > 0){
+      renderNews(favoritesNewsList);
+      addOrderBy(favoritesNewsList);
+      addSearch(favoritesNewsList);
+    } else {
+      document.getElementById("newsList").innerHTML = "<div class='error-container'><h2 class='error-message'>Você ainda não adicionou nenhum favorito</h2></div>";
+      document.getElementById("pagination").innerHTML = "";
+    }
   });
 };
 

@@ -17,7 +17,7 @@ function searchEvent(input){
     renderNews(input.target.searchResult);
     addOrderBy(input.target.searchResult);
   } else {
-    document.getElementById("newsList").innerHTML = "<h2 class='search-error'>Nenhum resultado encontrado :/</h2>";
+    document.getElementById("newsList").innerHTML = "<div class='error-container'><h2 class='error-message'>Nenhum resultado encontrado :/</div></h2>";
     document.getElementById("pagination").innerHTML = "";
   }
 }

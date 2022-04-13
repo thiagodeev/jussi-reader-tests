@@ -283,6 +283,22 @@ body a.active, body li.active {
   font-size: 1.2em;
 }
 
+.hidden {
+  display: none !important;
+}
+
+.error-container {
+  position: relative;
+  grid-column: span 2;
+  display: flex;
+  justify-content: space-around;
+}
+.error-container .error-message {
+  padding-top: 10vh;
+  font-size: 2.5em;
+  text-align: center;
+}
+
 #show-all-categories {
   display: inline;
   width: 7em;
@@ -407,19 +423,6 @@ body a.active, body li.active {
   outline: none;
 }
 
-.search-error {
-  position: absolute;
-  display: inline;
-  top: 5em;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  width: 90%;
-  font-size: 2.5em;
-  text-align: center;
-}
-
 .header__search_Layout {
   padding: 0;
 }
@@ -461,6 +464,7 @@ body a.active, body li.active {
 
 .header {
   display: flex;
+  transition: display 0.1s linear;
   flex-direction: column;
   align-items: center;
 }
