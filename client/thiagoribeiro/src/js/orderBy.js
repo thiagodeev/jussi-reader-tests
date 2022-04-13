@@ -1,5 +1,5 @@
-isTheDataEventAddedForTheFirstTime = false;
-isTheTitleEventAddedForTheFirstTime = false;
+isTheDataEventAddedForTheFirstTime = true;
+isTheTitleEventAddedForTheFirstTime = true;
 
 function dataEvent(element){
   document.getElementById("orderByTitle").removeAttribute('class');
@@ -39,13 +39,13 @@ function renderHTMLListOrderedByTitle(elementToRender){
 
   orderByTitleElement.elementToRender = elementToRender;
 
-  if(isTheTitleEventAddedForTheFirstTime){
+  if(!isTheTitleEventAddedForTheFirstTime){
     orderByTitleElement.removeEventListener('click', titleEvent, true);
   }
 
   orderByTitleElement.addEventListener("click", titleEvent, true);
 
-  isTheTitleEventAddedForTheFirstTime = true;
+  isTheTitleEventAddedForTheFirstTime = false;
 };
 
 //********** date **********//
@@ -66,12 +66,12 @@ function renderHTMLListOrderedByDate(elementToRender){
 
   orderByDateElement.elementToRender = elementToRender;
 
-  if(isTheDataEventAddedForTheFirstTime){
+  if(!isTheDataEventAddedForTheFirstTime){
     orderByDateElement.removeEventListener('click', dataEvent, true);
   }
   orderByDateElement.addEventListener("click", dataEvent, true);
 
-  isTheDataEventAddedForTheFirstTime = true;
+  isTheDataEventAddedForTheFirstTime = false;
 };
 
 //********** title and date **********//

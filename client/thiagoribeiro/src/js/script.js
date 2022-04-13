@@ -1,11 +1,14 @@
+isAllThisEventsAddedForTheFirstTime = true;
+
 async function main (){
   numberOfNewsPerPage = 6;
 
   newsFromAPI = await getAPINews();
-  const allAPINews = getAllNewsOf(newsFromAPI);
-  allNewsInHTMLFormat = createsHTMLNewsFrom(allAPINews);
+  const allAPINewsInOneList = getAllNewsOf(newsFromAPI);
+  allNewsInHTMLFormat = createsHTMLNewsFrom(allAPINewsInOneList);
 
   console.log(allNewsInHTMLFormat)
+  offlineFavoritesFeature(allNewsInHTMLFormat);
 
   renderNews = function (arrayToRender){
     const organizedNews = divideTheArray(arrayToRender, numberOfNewsPerPage);
@@ -22,15 +25,19 @@ async function main (){
   renderCategorieList(createsCategoriesObject(allNewsInHTMLFormat));
   seeAllCategories();
   
-  //add title click event 
-  titleLink(allNewsInHTMLFormat);
-  //add functionality to input API
-  addNewAPI();
+  if(isAllThisEventsAddedForTheFirstTime){
+    //add title click event 
+    titleLink(allNewsInHTMLFormat);
+    //add functionality to input API
+    addNewAPI();
+
+    isAllThisEventsAddedForTheFirstTime = false;
+  }
   //scroll to top
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
 
-  //save the news offline
+  //save the news list offline
   localStorage.setItem('newsFromAPI', JSON.stringify(newsFromAPI));
 };
 

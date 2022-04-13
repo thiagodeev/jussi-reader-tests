@@ -44,11 +44,6 @@ function makeFavoriteElement(){
     } else {
       theSVGElement.innerHTML = defaultPath;
     };
-
-
-    console.log(element.currentTarget);
-    //save the news offline
-    // localStorage.setItem('newsFromAPI', JSON.stringify(newsFromAPI));
   });
 
   return favoriteElement;

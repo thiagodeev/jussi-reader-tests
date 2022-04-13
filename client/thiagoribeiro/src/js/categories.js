@@ -80,7 +80,7 @@ function renderCategorieList(categoriesObject){
 };
 
 //////////// see all categories //////////////
-isTheSeeAllCategoriesEventAddedForTheFirstTime = false;
+isTheSeeAllCategoriesEventAddedForTheFirstTime = true;
 
 function seeAllCategories(){
   let toggleButton = document.getElementById("show-all-categories");
@@ -90,13 +90,13 @@ function seeAllCategories(){
   categoriesWrapper.classList.remove("show-list");
 
   //checks if the event has not been added yet
-  if (!isTheSeeAllCategoriesEventAddedForTheFirstTime){
+  if (isTheSeeAllCategoriesEventAddedForTheFirstTime){
     //trick to access this value inside event function
     toggleButton.categoriesWrapper = categoriesWrapper;
 
     toggleButton.addEventListener("click", seeAllCategoriesEvent);
 
-    isTheSeeAllCategoriesEventAddedForTheFirstTime = true;
+    isTheSeeAllCategoriesEventAddedForTheFirstTime = false;
   }
 };
 

@@ -1,4 +1,4 @@
-isTheSearchEventAddedForTheFirstTime = false;
+isTheSearchEventAddedForTheFirstTime = true;
 
 function searchEvent(input){
   input.target.searchResult = [];
@@ -29,11 +29,11 @@ function addSearch(allNewsInHTMLFormat){
   input.allNewsInHTMLFormat = allNewsInHTMLFormat;
   input.searchResult = searchResult;
   
-  if(isTheSearchEventAddedForTheFirstTime){
+  if(!isTheSearchEventAddedForTheFirstTime){
     input.removeEventListener('input', searchEvent, true);
   }
 
   input.addEventListener("input", searchEvent, true);
 
-  isTheSearchEventAddedForTheFirstTime = true;
+  isTheSearchEventAddedForTheFirstTime = false;
 };
