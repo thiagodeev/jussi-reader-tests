@@ -34,6 +34,9 @@ footer {
       &:last-child{
         border-radius: 0px $border-radius $border-radius 0px;
       }
+      &:only-child{
+        border-radius: $border-radius;
+      }
   
       &.active{
         background-color: $primary-color;

@@ -651,6 +651,9 @@ footer .pagination > div:first-child {
 footer .pagination > div:last-child {
   border-radius: 0px 10px 10px 0px;
 }
+footer .pagination > div:only-child {
+  border-radius: 10px;
+}
 footer .pagination > div.active {
   background-color: #60eca6;
 }
