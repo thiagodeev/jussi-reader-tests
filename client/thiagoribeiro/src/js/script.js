@@ -1,5 +1,3 @@
-isAllThisEventsAddedForTheFirstTime = true;
-
 async function main (){
   numberOfNewsPerPage = 6;
 
@@ -25,14 +23,11 @@ async function main (){
   renderCategorieList(createsCategoriesObject(allNewsInHTMLFormat));
   seeAllCategories();
   
-  if(isAllThisEventsAddedForTheFirstTime){
-    //add title click event 
-    titleLink(allNewsInHTMLFormat);
-    //add functionality to input API
-    addNewAPI();
+  //add title click event 
+  titleLink(allNewsInHTMLFormat);
+  //add functionality to input API
+  addNewAPI();
 
-    isAllThisEventsAddedForTheFirstTime = false;
-  }
   //scroll to top
   window.scrollTo({ top: 0, behavior: 'smooth' });
 

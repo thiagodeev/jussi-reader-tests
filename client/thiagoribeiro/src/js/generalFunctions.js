@@ -21,21 +21,3 @@ function titleLink(organizedNews){
     };
   };
 };
-
-function addNewAPI(){
-  let input = document.getElementById("input-api-link");
-  let button = document.getElementById("submit-api-button");
-  let APILink = "";
-  
-  button.addEventListener("click", async element => {
-    element.preventDefault();
-    
-    APILink = input.value;
-    newsURLs.push(APILink);
-    
-    const newsFromAPI = await fetchAPI(newsURLs);
-    //update the offline news list
-    localStorage.setItem('newsFromAPI', JSON.stringify(newsFromAPI));
-    main();
-  }, {once : true});
-};
