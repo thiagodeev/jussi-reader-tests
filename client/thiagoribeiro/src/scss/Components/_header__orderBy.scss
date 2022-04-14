@@ -9,6 +9,8 @@
   a{
     text-decoration: none;
     white-space: nowrap;
+    display: flex;
+    align-items: center;
 
     .header__orderBy__titleFilterIcon, .header__orderBy__dateFilterIcon{
       vertical-align: middle;
@@ -37,7 +39,7 @@
   align-items: center;
   justify-content: space-between;
   height: 2em;
-  margin-top: 0.5em;
+  margin-left: 0.8em;
 
   p{
     margin-right: 10px;
@@ -48,6 +50,8 @@
   }
 
   a{
+    padding: 0.3em;
+    
     .header__orderBy__titleFilterIcon{
       font-size: 1.5em;
     }
