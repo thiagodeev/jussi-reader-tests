@@ -24,11 +24,27 @@
   .container-1{
     align-items: center;
   }
+  // .container-2{
+  //   @include breakpoint(tablet, min){
+  //     display: grid;
+  //     grid-auto-flow: column;
+  //   }
+  // }
 
   .container-orderByAndFavorites{
     flex-direction: row;
     align-items: center;
     flex-wrap: wrap;
+
+    @include breakpoint(tablet, min){
+      justify-content: flex-end;
+    }
+  }
+
+  .container-categories{
+    @include breakpoint(tablet, min){
+      flex-direction: column;
+    }
   }
 
   a{

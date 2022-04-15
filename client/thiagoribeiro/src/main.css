@@ -303,6 +303,36 @@ body a.active, body li.active {
   text-align: center;
 }
 
+.header__categories {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-around;
+}
+.header__categories p {
+  justify-self: start;
+}
+.header__categories p, .header__categories .categories-list {
+  margin: 0.5em 0;
+}
+.header__categories .categories-list {
+  justify-content: space-between;
+}
+
+.categories-list, .categories-list-2 {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.categories-list .flex-item, .categories-list-2 .flex-item {
+  text-align: center;
+  padding: 0.4em;
+}
+.categories-list .flex-item a, .categories-list-2 .flex-item a {
+  padding: 0.4em;
+}
+
 .show-all-categories {
   display: inline;
   width: 7em;
@@ -319,51 +349,6 @@ body a.active, body li.active {
 }
 .categories-wrapper.show-list {
   display: block;
-}
-.categories-wrapper ul.categories-list-2 {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-
-.header__categories ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-}
-.header__categories ul .flex-item {
-  flex: 1 1 auto;
-  text-align: center;
-}
-@media (min-width: 740px) {
-  .header__categories ul .flex-item:nth-child(1) {
-    padding-right: 5px;
-  }
-  .header__categories ul .flex-item:nth-child(2) {
-    padding: 0 5px;
-  }
-  .header__categories ul .flex-item:nth-child(3) {
-    padding-left: 5px;
-  }
-}
-.header__categories ul .flex-item a {
-  display: block;
-  width: 100%;
-  height: 100%;
-}
-@media (max-width: 300px) {
-  .header__categories ul .flex-item a {
-    margin: 0 2px;
-  }
-}
-@media (min-width: 300px) {
-  .header__categories ul .flex-item + .flex-item {
-    border-left: 1px solid white;
-  }
 }
 
 .header__favorites > a {
@@ -516,6 +501,16 @@ body a.active, body li.active {
   flex-direction: row;
   align-items: center;
   flex-wrap: wrap;
+}
+@media (min-width: 740px) {
+  .header .container-orderByAndFavorites {
+    justify-content: flex-end;
+  }
+}
+@media (min-width: 740px) {
+  .header .container-categories {
+    flex-direction: column;
+  }
 }
 .header a {
   color: #60eca6;

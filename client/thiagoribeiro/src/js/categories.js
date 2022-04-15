@@ -77,6 +77,10 @@ function renderCategorieList(categoriesObject){
       categoriesListElement_2.append(categorieItem);
     }
   });
+
+  let categoriesLabel = document.createElement("p");
+  categoriesLabel.innerText = "Categorias:";
+  categoriesListElement.prepend(categoriesLabel);
 };
 
 //////////// see all categories //////////////

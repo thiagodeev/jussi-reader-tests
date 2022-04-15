@@ -60,7 +60,7 @@
       <div class="container-2">
         <div class="container-categories">
           <nav class="header__categories">
-            <ul id="categories-list"></ul>
+            <ul id="categories-list" class="categories-list"></ul>
           </nav>
           <button id="show-all-categories" class="show-all-categories">Ver mais</button>
           <div id="categories-wrapper" class="categories-wrapper">
@@ -109,4 +109,27 @@
       </form>
     </footer>
   </body>
+  <script>
+    //all this is just for move the 'categories-wrapper' element, por aesthetics reasons
+
+    var isTheElementPositionChanged = false;
+    let screenSize = screen.width;
+
+    if(screenSize > 740){
+      document.getElementsByClassName("container-2")[0].insertAdjacentElement("afterend", document.getElementById("categories-wrapper")); 
+      isTheElementPositionChanged = true;
+    }
+
+    window.onresize = () => {
+      let screenSize = screen.width;
+
+      if(screenSize > 740){
+        document.getElementsByClassName("container-2")[0].insertAdjacentElement("afterend", document.getElementById("categories-wrapper")); 
+        isTheElementPositionChanged = true;
+      } else 
+      if(isTheElementPositionChanged){
+        document.getElementById("show-all-categories").insertAdjacentElement("afterend", document.getElementById("categories-wrapper"));
+      };
+    };
+  </script>
 </html>
