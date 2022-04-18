@@ -278,10 +278,6 @@ body:before {
   filter: blur(2px);
   -webkit-filter: blur(2px);
 }
-body a.active, body li.active {
-  color: #32ff00;
-  font-size: 1.2em;
-}
 
 .hidden {
   display: none !important;
@@ -317,6 +313,11 @@ body a.active, body li.active {
 .header__categories .categories-list {
   justify-content: space-between;
 }
+@media (min-width: 740px) {
+  .header__categories .categories-list {
+    margin: 0;
+  }
+}
 
 .categories-list, .categories-list-2 {
   list-style: none;
@@ -336,6 +337,7 @@ body a.active, body li.active {
 .show-all-categories {
   display: inline;
   width: 7em;
+  cursor: pointer;
   border-radius: 0.6em;
   border: 1px solid black;
   background-color: #60eca6;
@@ -497,6 +499,11 @@ body a.active, body li.active {
 .header .container-1 {
   align-items: center;
 }
+@media (min-width: 740px) {
+  .header .container-2 {
+    align-items: start;
+  }
+}
 .header .container-orderByAndFavorites {
   flex-direction: row;
   align-items: center;
@@ -512,8 +519,20 @@ body a.active, body li.active {
     flex-direction: column;
   }
 }
+.header li.flex-item.active a {
+  background-color: rgba(96, 236, 166, 0.2);
+  border-radius: 0.5em;
+}
 .header a {
   color: #60eca6;
+}
+.header a.active {
+  background-color: rgba(96, 236, 166, 0.2);
+  border-radius: 0.5em;
+}
+.header a.active:hover {
+  background-color: rgba(96, 236, 166, 0.2);
+  border-radius: 0.5em;
 }
 .header a:hover {
   background-color: rgba(255, 255, 255, 0.2);

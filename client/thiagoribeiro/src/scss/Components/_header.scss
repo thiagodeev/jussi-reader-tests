@@ -24,12 +24,11 @@
   .container-1{
     align-items: center;
   }
-  // .container-2{
-  //   @include breakpoint(tablet, min){
-  //     display: grid;
-  //     grid-auto-flow: column;
-  //   }
-  // }
+  .container-2{
+    @include breakpoint(tablet, min){
+      align-items: start;
+    }
+  }
 
   .container-orderByAndFavorites{
     flex-direction: row;
@@ -47,14 +46,31 @@
     }
   }
 
+  //active items and hover style
+  li.flex-item.active{
+    a{
+      background-color: rgb(96 236 166 / 20%);
+      border-radius: 0.5em;
+    }
+  }
   a{
     color: $secondary-text-color;
 
+    &.active{
+      background-color: rgb(96 236 166 / 20%);
+      border-radius: 0.5em;
+
+      &:hover{
+        background-color: rgb(96 236 166 / 20%);
+        border-radius: 0.5em;
+      }
+    }
     &:hover{
       background-color: rgb(255 255 255 / 20%);
       border-radius: 0.5em;
     }
   }
+  /////////
 }
 
 .header_Layout{

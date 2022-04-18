@@ -2,21 +2,27 @@ function favorites(allNewsInHTMLFormat){
   let favoriteItem = document.getElementById("favorites");
 
   favoriteItem.addEventListener("click", element => {
-    let favoritesNewsList = [];
-    allNewsInHTMLFormat.forEach(news => {
-      if(news.children[0].classList.contains("favorite")){
-        favoritesNewsList.push(news);
-      }
-    });
+    removeActiveClassFromCategoriesItems();
 
-    if(favoritesNewsList.length > 0){
-      renderNews(favoritesNewsList);
-      addOrderBy(favoritesNewsList);
-      addSearch(favoritesNewsList);
-    } else {
-      document.getElementById("newsList").innerHTML = "<div class='error-container'><h2 class='error-message'>Você ainda não adicionou nenhum favorito</h2></div>";
-      document.getElementById("pagination").innerHTML = "";
-    }
+    if(!element.currentTarget.classList.contains("active")){
+      let favoritesNewsList = [];
+      allNewsInHTMLFormat.forEach(news => {
+        if(news.children[0].classList.contains("favorite")){
+          favoritesNewsList.push(news);
+        }
+      });
+
+      if(favoritesNewsList.length > 0){
+        renderNews(favoritesNewsList);
+        addOrderBy(favoritesNewsList);
+        addSearch(favoritesNewsList);
+      } else {
+        document.getElementById("newsList").innerHTML = "<div class='error-container'><h2 class='error-message'>Você ainda não adicionou nenhum favorito</h2></div>";
+        document.getElementById("pagination").innerHTML = "";
+      }
+
+      element.currentTarget.classList.add("active");
+    };
   });
 };
 

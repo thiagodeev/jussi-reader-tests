@@ -30,7 +30,6 @@ async function main (){
   //scroll to top
   window.scrollTo({ top: 0, behavior: 'smooth' });
 
-
   //save the news list offline
   localStorage.setItem('newsFromAPI', JSON.stringify(newsFromAPI));
 };

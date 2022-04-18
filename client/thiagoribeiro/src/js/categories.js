@@ -53,13 +53,8 @@ function renderCategorieList(categoriesObject){
       if(!element.currentTarget.classList.contains("active")){
         // console.log(categorieElements)
 
-        //removes the class Active from all categories items 
-        for (let i=0; i < categoriesListElement.children.length; i++){
-          categoriesListElement.children[i].classList.remove('active');
-        }
-        for (let i=0; i < categoriesListElement_2.children.length; i++){
-          categoriesListElement_2.children[i].classList.remove('active');
-        }
+        removeActiveClassFromCategoriesItems();
+        removeActiveClassFromFavoriteMenu();
         
         //write the page on HTML
         renderNews(value);
