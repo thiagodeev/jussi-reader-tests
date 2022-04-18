@@ -17,6 +17,8 @@ function favorites(allNewsInHTMLFormat){
         addOrderBy(favoritesNewsList);
         addSearch(favoritesNewsList);
       } else {
+        addOrderBy(favoritesNewsList);
+        addSearch(favoritesNewsList);
         document.getElementById("newsList").innerHTML = "<div class='error-container'><h2 class='error-message'>Você ainda não adicionou nenhum favorito</h2></div>";
         document.getElementById("pagination").innerHTML = "";
       }
